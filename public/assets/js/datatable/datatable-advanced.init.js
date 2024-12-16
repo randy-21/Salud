@@ -1,4 +1,8 @@
-// 
+
+
+function datatable_load() {
+  alert("Datatable");
+   // 
 //    File export                              //
 // 
 $("#file_export").DataTable({
@@ -199,3 +203,4 @@ $("#row_create_call").DataTable({
     }
   },
 });
+}

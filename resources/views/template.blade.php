@@ -8,25 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+    <link rel="icon" type="image/jpg" href="#" />
 
     <!-- Core Css -->
     <link rel="stylesheet" href="../assets/css/styles.css" />
+    <!-- Summernote CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css" rel="stylesheet">
+    <!-- jQuery -->
+
 
     <title>Aybar Corp</title>
     <link rel="stylesheet" href="../assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <script src="{{ asset('js/axios.min.js') }}"></script>
+    <link href="{{asset('css/template.css')}}" rel="stylesheet">
     <script src="{{ asset('js/user.js') }}"></script>
+   
+    <script src="{{ asset('js/function.js') }}"></script>
+    <script src="{{ asset('js/axios.min.js') }}"></script>
 
 </head>
 
 <body>
 
     <!-- Preloader -->
-    <div class="preloader"><img src="#" alt="loader" class="lds-ripple img-fluid" /></div>
+    <div class="preloader"><img src="{{ asset('img/imagen.png') }}" alt="loader" class="lds-ripple img-fluid" /></div>
     <div id="main-wrapper">
         <!-- Sidebar Start -->
 
@@ -68,8 +74,8 @@
                         </div>
                         <div class="sidebarmenu">
                             <div class="brand-logo d-flex align-items-center nav-logo">
-                                <a href="../main/index.html" class="text-nowrap logo-img">
-                                    <img src="{{asset('salud.png')}}"width="100px" alt="Lssogo" />
+                                <a href="{{ url('/') }}" class="text-nowrap logo-img">
+                                    <img src="{{ asset('img/imagen.png') }}"width="100%" style="border-radius: 0px" alt="Logo" />
                                 </a>
 
                             </div>
@@ -83,40 +89,49 @@
                                     <!-- Home -->
                                     <!-- ---------------------------------- -->
                                     <li class="nav-small-cap">
-                                        <span class="hide-menu">Indicadores de Salud</span>
+                                        <span class="hide-menu">Indicadores Desempeño</span>
                                     </li>
                                     <!-- ---------------------------------- -->
                                     <!-- Dashboard -->
                                     <!-- ---------------------------------- -->
-
+                          
                                     <li class="sidebar-item">
                                         <a class="sidebar-link" href="https://diredsaa.gob.pe/desempeno/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">DESEMPEÑO</span>
+                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>DESEMPEÑO</b> </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link" href="https://diredsaa.gob.pe/gestion/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">GESTIÓN</span>
+                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b> GESTIÓN</b> </span>
+                                           
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link" href="https://diredsaa.gob.pe/fed-2023-2024/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">FED 2024-2025</span>
+                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>FED 2024-2025</b> </span>
+                                            
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link" href="https://diredsaa.gob.pe/seguimiento/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">SEGUIMIENTO</span>
+                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>SEGUIMIENTO</b> </span>
+                                          
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link" href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">PADRON NOMINAL</span>
+                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>PADRON NOMINAL</b> </span>
+                                           
                                         </a>
                                     </li>
                                     <li>
@@ -128,14 +143,13 @@
                                             <span class="hide-menu">Usuarios</span>
                                         </a>
                                     </li>
-
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
 
-                                    <li class="nav-small-cap">
+                                    {{-- <li class="nav-small-cap">
                                         <span class="hide-menu">Módulos</span>
-                                    </li>
+                                    </li> --}}
 
                                     <li class="sidebar-item">
                                         <a class="sidebar-link has-arrow " href="javascript:void(0)"
@@ -145,44 +159,19 @@
                                         </a>
                                         <ul aria-expanded="false" class="collapse first-level">
                                             <li class="sidebar-item">
-                                                <a class="sidebar-link" href="#">
-                                                    <span class="icon-small"></span> Usuario
+                                                <a class="sidebar-link" href="{{ url('admin/usuarios') }}">
+                                                    <span class="icon-small"></span> Usuarios
                                                 </a>
                                             </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="../main/eco-shop-detail.html">
-                                                    <span class="icon-small"></span>Roles
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/fed-2023-2024/">
-                                                    <span class="icon-small"></span>Ruta nueva
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                            aria-expanded="false">
-                                            <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Blog</span>
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level">
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="../main/blog-posts.html">
-                                                    <span class="icon-small"></span>Blog
-                                                    Posts
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="../main/blog-detail.html">
-                                                    <span class="icon-small"></span>Blog
-                                                    Details
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                          
+                                          
 
+                                        </ul>
+                                    </li>
+                              
+                                   
+                                    
+                                   
 
                                 </ul>
                             </nav>
@@ -232,7 +221,7 @@
                         </ul>
 
                         <div class="d-block d-lg-none py-9 py-xl-0">
-                            <img src="#" width="120px" alt="matdash-img" />
+                            <img src="#" width="100%" alt="matdash-img" />
                         </div>
                         <a class="navbar-toggler p-0 border-0 nav-icon-hover-bg rounded-circle"
                             href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -243,7 +232,7 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <ul
                                     class="navbar-nav flex-row mx-auto ms-lg-auto align-items-center justify-content-center">
-                                    <li class="nav-item dropdown">
+                                    {{-- <li class="nav-item dropdown">
                                         <a href="javascript:void(0)"
                                             class="nav-link nav-icon-hover-bg rounded-circle d-flex d-lg-none align-items-center justify-content-center"
                                             type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar"
@@ -251,7 +240,7 @@
                                             <iconify-icon icon="solar:sort-line-duotone"
                                                 class="fs-6"></iconify-icon>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                         <a class="nav-link moon dark-layout nav-icon-hover-bg rounded-circle"
                                             href="javascript:void(0)">
@@ -264,13 +253,13 @@
                                                 class="sun fs-6"></iconify-icon>
                                         </a>
                                     </li>
-                                    <li class="nav-item d-block d-xl-none">
+                                    {{-- <li class="nav-item d-block d-xl-none">
                                         <a class="nav-link nav-icon-hover-bg rounded-circle" href="javascript:void(0)"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <iconify-icon icon="solar:magnifer-line-duotone"
                                                 class="fs-6"></iconify-icon>
                                         </a>
-                                    </li>
+                                    </li> --}}
 
 
                                     <!-- ------------------------------- -->
@@ -299,39 +288,34 @@
                                             aria-labelledby="drop1">
                                             <div class="position-relative px-4 pt-3 pb-2">
                                                 <div class="d-flex align-items-center mb-3 pb-3 border-bottom gap-6">
-                                                    <img src="assets/images/profile/user-1.jpg"
+                                                    <img src="../assets/images/profile/user-1.jpg"
                                                         class="rounded-circle" width="56" height="56"
                                                         alt="matdash-img" />
                                                     <div>
-                                                        <h5 class="mb-0 fs-12">David McMicharrrfrfrel <span
-                                                                class="text-success fs-11">Pro</span>
-                                                        </h5>
-                                                        <p class="mb-0 text-dark">
-                                                            david@wrappixel.com
-                                                        </p>
+                                                        <p class="mb-0 text-primary">
+                                                            {{Auth::user()->name}}
+                                                          </p>
+                                                        <span
+                                                        class="text-success fs-11">Pro</span>
+                                                        {{-- <h5 class="mb-0 fs-12 text-black">   {{Auth::user()->name}}
+                                                        </h5> --}}
+                                                       
                                                     </div>
                                                 </div>
                                                 <div class="message-body">
                                                     <a href="javascript:void(0)"
                                                         class="p-2 dropdown-item h6 rounded-1">
-                                                        My Profile
+                                                        Mi Perfil
                                                     </a>
-                                                    <a href="javascript:void(0)"
+
+
+                                                    {{-- <a href="javascript:void(0)"
                                                         class="p-2 dropdown-item h6 rounded-1">
-                                                        My Subscription
-                                                    </a>
-                                                    <a href="javascript:void(0)"
+                                                        Configuraciones
+                                                    </a> --}}
+                                                    <a href="{{ url('logout') }}"
                                                         class="p-2 dropdown-item h6 rounded-1">
-                                                        My Statements <span
-                                                            class="badge bg-danger-subtle text-danger rounded ms-8">4</span>
-                                                    </a>
-                                                    <a href="javascript:void(0)"
-                                                        class="p-2 dropdown-item h6 rounded-1">
-                                                        Account Settings
-                                                    </a>
-                                                    <a href="../main/authentication-login2.html"
-                                                        class="p-2 dropdown-item h6 rounded-1">
-                                                        Sign Out
+                                                        Salir
                                                     </a>
                                                 </div>
                                             </div>
@@ -352,7 +336,7 @@
                     <!-- apps Dropdown in Small screen -->
                     <!-- ------------------------------- -->
                     <!--  Mobilenavbar -->
-                    <div class="offcanvas offcanvas-start pt-0" data-bs-scroll="true" tabindex="-1"
+                    {{-- <div class="offcanvas offcanvas-start pt-0" data-bs-scroll="true" tabindex="-1"
                         id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
                         <nav class="sidebar-nav scroll-sidebar">
                             <div class="offcanvas-header justify-content-between">
@@ -490,9 +474,9 @@
                                 </ul>
                             </div>
                         </nav>
-                    </div>
+                    </div> --}}
                 </div>
-                <div class="app-header with-horizontal">
+                {{-- <div class="app-header with-horizontal">
                     <nav class="navbar navbar-expand-xl container-fluid p-0">
                         <ul class="navbar-nav align-items-center">
                             <li class="nav-item d-flex d-xl-none">
@@ -842,55 +826,7 @@
                                     <!-- ------------------------------- -->
                                     <!-- start language Dropdown -->
                                     <!-- ------------------------------- -->
-                                    <li class="nav-item dropdown nav-icon-hover-bg rounded-circle">
-                                        <a class="nav-link" href="javascript:void(0)" id="drop2"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img src="../assets/images/flag/icon-flag-en.svg" alt="matdash-img"
-                                                width="20px" height="20px"
-                                                class="rounded-circle object-fit-cover round-20" />
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
-                                            aria-labelledby="drop2">
-                                            <div class="message-body">
-                                                <a href="javascript:void(0)"
-                                                    class="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
-                                                    <div class="position-relative">
-                                                        <img src="../assets/images/flag/icon-flag-en.svg"
-                                                            alt="matdash-img" width="20px" height="20px"
-                                                            class="rounded-circle object-fit-cover round-20" />
-                                                    </div>
-                                                    <p class="mb-0 fs-3">English (UK)</p>
-                                                </a>
-                                                <a href="javascript:void(0)"
-                                                    class="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
-                                                    <div class="position-relative">
-                                                        <img src="../assets/images/flag/icon-flag-cn.svg"
-                                                            alt="matdash-img" width="20px" height="20px"
-                                                            class="rounded-circle object-fit-cover round-20" />
-                                                    </div>
-                                                    <p class="mb-0 fs-3">中国人 (Chinese)</p>
-                                                </a>
-                                                <a href="javascript:void(0)"
-                                                    class="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
-                                                    <div class="position-relative">
-                                                        <img src="../assets/images/flag/icon-flag-fr.svg"
-                                                            alt="matdash-img" width="20px" height="20px"
-                                                            class="rounded-circle object-fit-cover round-20" />
-                                                    </div>
-                                                    <p class="mb-0 fs-3">français (French)</p>
-                                                </a>
-                                                <a href="javascript:void(0)"
-                                                    class="d-flex align-items-center gap-2 py-3 px-4 dropdown-item">
-                                                    <div class="position-relative">
-                                                        <img src="../assets/images/flag/icon-flag-sa.svg"
-                                                            alt="matdash-img" width="20px" height="20px"
-                                                            class="rounded-circle object-fit-cover round-20" />
-                                                    </div>
-                                                    <p class="mb-0 fs-3">عربي (Arabic)</p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
+
                                     <!-- ------------------------------- -->
                                     <!-- end language Dropdown -->
                                     <!-- ------------------------------- -->
@@ -958,11 +894,11 @@
                         </div>
                     </nav>
 
-                </div>
+                </div> --}}
             </header>
             <!--  Header End -->
 
-            <aside class="left-sidebar with-horizontal">
+            {{-- <aside class="left-sidebar with-horizontal">
                 <!-- Sidebar scroll-->
                 <div>
                     <!-- Sidebar navigation-->
@@ -1667,7 +1603,7 @@
                     <!-- End Sidebar navigation -->
                 </div>
                 <!-- End Sidebar scroll-->
-            </aside>
+            </aside> --}}
 
             @yield('content')
 
@@ -1982,7 +1918,7 @@
     <!-- solar icons -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
-    <script src="{{asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
@@ -1994,9 +1930,9 @@
         function datatable_load() {
 
 
-            //
+            // 
             //    File export                              //
-            //
+            // 
             $("#file_export").DataTable({
                 dom: "Bfrtip",
                 buttons: ["copy", "csv", "excel", "pdf", "print"],
@@ -2005,9 +1941,9 @@
                 ".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel"
             ).addClass("btn btn-primary");
 
-            //
+            // 
             //  Show / hide columns dynamically                 //
-            //
+            // 
 
             var table = $("#show_hide_col").DataTable({
                 scrollY: "200px",
@@ -2026,9 +1962,9 @@
                 column.visible(!column.visible());
             });
 
-            //
+            // 
             //    Column rendering                         //
-            //
+            // 
             $("#col_render").DataTable({
                 columnDefs: [{
                         // The `data` parameter refers to the data for the cell (defined by the
@@ -2046,9 +1982,9 @@
                 ],
             });
 
-            //
+            // 
             //     Row grouping                            //
-            //
+            // 
             var table = $("#row_group").DataTable({
                 pageLength: 10,
                 columnDefs: [{
@@ -2085,9 +2021,9 @@
                 },
             });
 
-            //
+            // 
             // Order by the grouping
-            //
+            // 
             $("#row_group tbody").on("click", "tr.group", function() {
                 var currentOrder = table.order()[0];
                 if (currentOrder[0] === 2 && currentOrder[1] === "asc") {
@@ -2097,16 +2033,16 @@
                 }
             });
 
-            //
+            // 
             //    Multiple table control element           //
-            //
+            // 
             $("#multi_control").DataTable({
                 dom: '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
             });
 
-            //
+            // 
             //    DOM/jquery events                        //
-            //
+            // 
             var table = $("#dom_jq_event").DataTable();
 
             $("#dom_jq_event tbody").on("click", "tr", function() {
@@ -2114,18 +2050,18 @@
                 alert("You clicked on " + data[0] + "'s row");
             });
 
-            //
+            // 
             //    Language File                            //
-            //
+            // 
             $("#lang_file").DataTable({
                 language: {
                     url: "../../assets/js/datatable/German.json",
                 },
             });
 
-            //
+            // 
             //    Complex headers with column visibility   //
-            //
+            // 
 
             $("#complex_head_col").DataTable({
                 columnDefs: [{
@@ -2134,9 +2070,9 @@
                 }, ],
             });
 
-            //
+            // 
             //    Setting defaults                         //
-            //
+            // 
             var defaults = {
                 searching: false,
                 ordering: false,
@@ -2144,9 +2080,9 @@
 
             $("#setting_defaults").dataTable($.extend(true, {}, defaults, {}));
 
-            //
+            // 
             //    Footer callback                          //
-            //
+            // 
             $("#footer_callback").DataTable({
                 footerCallback: function(row, data, start, end, display) {
                     var api = this.api(),
@@ -2186,9 +2122,9 @@
                 },
             });
 
-            //
+            // 
             //    Custom toolbar elements                  //
-            //
+            // 
 
             $("#custom_tool_ele").DataTable({
                 dom: '<"toolbar">frtip',
@@ -2196,9 +2132,9 @@
 
             $("div.toolbar").html("<b>Custom tool bar! Text/images etc.</b>");
 
-            //
+            // 
             //    Row created callback                     //
-            //
+            // 
             $("#row_create_call").DataTable({
                 createdRow: function(row, data, index) {
                     if (data[5].replace(/[\$,]/g, "") * 1 > 150000) {
@@ -2212,6 +2148,58 @@
 
 
 
+    <!-- jQuery -->
+    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Summernote JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Inicializar el editor Summernote extendido
+            $('#my-textarea').summernote({
+                height: 400, // Altura del editor
+                placeholder: 'Escribe algo aquí...',
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript',
+                        'subscript', 'clear'
+                    ]],
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video', 'hr']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                    ['history', ['undo', 'redo']]
+                ]
+             
+            });
+        });
+    </script>
+    <script>
+        function reset_textarea() {
+
+            document.getElementsByClassName('note-editable')[0].innerHTML = "";
+        }
+    </script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+    <script defer>
+        $(function() {
+            $('.select2').select2()
+        });
+    </script>
+
+
+ <!-- solar icons -->
+
+ {{-- <script src="{{ asset('assets/js/plugins/colorpicker-init.js') }}"defer></script> --}}
+ 
 
 </body>
 
