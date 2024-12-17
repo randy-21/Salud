@@ -87,36 +87,15 @@ function userEdit(id) {
             }
         })
         .then(function(response) {
-            user.id.value = response.data["id"];
-            user.dni.value = response.data["dni"];
-            user.firstname.value = response.data["firstname"];
-            user.lastname.value = response.data["lastname"];
-            user.names.value = response.data["names"];
-
-            if(response.data["photo"]!=null){
-
-                user.fotografia.src ="imageusers/"+ response.data["photo"];
-            }
-            else{
-                user.fotografia.src ="https://via.placeholder.com/150";
-            }
-            user.email.value = response.data["email"];
-            user.cellphone.value = response.data["cellphone"];
-
-
-            if (response.data["sex"]=="M") {
-                document.getElementById('M').checked=true;
-            }
-            else{
-                document.getElementById('F').checked=true;
-            }
-         var datebirth =  response.data["datebirth"];
-         user.month.value  = parseInt(datebirth.substr(5,2)) ;
-         user.day.value  = parseInt(datebirth.substr(8,2)) ;
-         user.year.value  = parseInt(datebirth.substr(0,4)) ;
-
-         user.role.value=    response.data["roles_"][0]["name"];
-
+        
+          
+        user.name.value = response.data["name"];
+        user.email.value = response.data["email"];
+        user.id.value = response.data["id"];
+        user.password.value = response.data["password"];
+    
+           
+         
 
 
         })

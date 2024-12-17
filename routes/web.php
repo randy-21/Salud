@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect("usuarios");
+    return redirect("login");
 });
 Route::get('maestro', function () {
   return view('user.user');
@@ -28,6 +28,8 @@ Route::get('/saludo_controlador', [SaludosController::class, 'index']);
 
 Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index']);
 Route::post('userStore', [App\Http\Controllers\UserController::class, 'store']);
+Route::post('userUpdate', [App\Http\Controllers\UserController::class, 'update']);
+Route::post('userEdit', [App\Http\Controllers\UserController::class, 'edit']);
 Route::get('userDestroy/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 
 

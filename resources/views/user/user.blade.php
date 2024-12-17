@@ -35,7 +35,9 @@
                         </div>
                         <p class="card-subtitle mb-3">
                             <button type="button" class="btn mb-1 me-1 bg-success-subtle text-success"
-                                data-bs-toggle="modal" data-bs-target="#success-header-modal">
+                                data-bs-toggle="modal" data-bs-target="#success-header-modal"
+                                onclick="New();$('#user')[0].reset();"
+                                >
                                 Agregar
                             </button>
                         </p>
@@ -78,16 +80,10 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña</label>
-                                <input type="password" name="password" class="form-control" id="password" value="12345678">
+                                <input type="password" name="password" class="form-control" id="password" >
                             </div>
                             <br>
-                            Elija Rol :
-                            <select name="role" id="" class="form-control">
-                                <option value="admin">Admin</option>
-                                <option value="Asistencial">Asistencial</option>
-                                <option value="Digitador">Digitador</option>
-                                <option value="Invitado">Invitado</option>
-                            </select>
+                           
 
                     </div>
                     <div class="modal-footer">

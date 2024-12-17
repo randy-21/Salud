@@ -2187,13 +2187,13 @@
             document.getElementsByClassName('note-editable')[0].innerHTML = "";
         }
     </script>
-    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    {{-- <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script> --}}
 
-    <script defer>
+    {{-- <script defer>
         $(function() {
             $('.select2').select2()
         });
-    </script>
+    </script> --}}
 
 
  <!-- solar icons -->

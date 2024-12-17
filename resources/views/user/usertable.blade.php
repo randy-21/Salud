@@ -31,8 +31,7 @@
                 </td>
                 <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success ti ti-pencil" data-toggle="modal"
-                        data-target="#exampleModal"
+                    <button type="button" class="btn btn-success ti ti-pencil"   data-bs-toggle="modal" data-bs-target="#success-header-modal"
                         onclick="userEdit('{{ $users->id }}'); Up();  return false"></button>
                 </td>
                 <td>
