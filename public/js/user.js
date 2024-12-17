@@ -92,7 +92,7 @@ function userEdit(id) {
         user.name.value = response.data["name"];
         user.email.value = response.data["email"];
         user.id.value = response.data["id"];
-        user.password.value = response.data["password"];
+       
     
            
          

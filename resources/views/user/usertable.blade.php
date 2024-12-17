@@ -4,10 +4,7 @@
         <!-- start row -->
         <tr>
             <th>Rol</th>
-            <th><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
-                    srcset=""></th>
-            <th><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
-                    srcset=""></th>
+           
             <th>ID</th>
 
             <th>Nombres</th>
@@ -24,21 +21,38 @@
             <tr>
 
                 <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn" data-toggle="modal"
-                        style="background-color:#023039;color:#ffffff" data-target="#exampleModal2"
-                        onclick="userRoleEdit('{{ $users->id }}');  return false">Roles</button>
-                </td>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success ti ti-pencil"   data-bs-toggle="modal" data-bs-target="#success-header-modal"
-                        onclick="userEdit('{{ $users->id }}'); Up();  return false"></button>
-                </td>
-                <td>
+                    <div class="dropdown dropstart">
+                        <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="ti ti-dots-vertical fs-6"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                          <li>
+                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)" onclick="userRoleEdit('{{ $users->id }}');  return false">
+                              <i class="fs-4 ti ti-user"></i>Role
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"
+                            data-bs-toggle="modal" data-bs-target="#success-header-modal"
+                        onclick="userEdit('{{ $users->id }}'); Up();  return false"
+                            >
+                              <i class="fs-4 ti ti-edit"></i>Edit
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"
+                              onclick="userDestroy('{{ $users->id }}'); return false"
+                            >
+                              <i class="fs-4 ti ti-trash"></i>Delete
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
 
-                    <button class="btn btn-danger ti ti-trash"
-                        onclick="userDestroy('{{ $users->id }}'); return false"></button>
+
+                  
                 </td>
+              
 
 
 
@@ -70,10 +84,7 @@
         <!-- start row -->
         <tr>
           <th>Rol</th>
-          <th><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
-                  srcset=""></th>
-          <th><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
-                  srcset=""></th>
+        
           <th>ID</th>
 
           <th>Nombres</th>

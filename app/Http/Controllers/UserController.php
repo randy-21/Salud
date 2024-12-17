@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -36,7 +40,10 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+      
+            $user->password = Hash::make($request->password);
+   
+        
         $user->save();
         $user->assignRole("Digitador");
 
@@ -71,7 +78,9 @@ class UserController extends Controller
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if ($request->password!="") {
+            $user->password = Hash::make($request->password);
+        }
         $user->save();
         return $this->refresh();
     }

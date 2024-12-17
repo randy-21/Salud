@@ -25,6 +25,7 @@
     <script src="{{ asset('js/user.js') }}"></script>
    
     <script src="{{ asset('js/function.js') }}"></script>
+    <script src="{{ asset('js/role.js') }}"></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
 
 </head>
@@ -137,15 +138,8 @@
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" href="{{url('usuarios')}}" aria-expanded="false">
-                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Usuarios</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <span class="sidebar-divider"></span>
-                                    </li>
+                             
+                                   
 
                                     {{-- <li class="nav-small-cap">
                                         <span class="hide-menu">Módulos</span>
@@ -159,8 +153,13 @@
                                         </a>
                                         <ul aria-expanded="false" class="collapse first-level">
                                             <li class="sidebar-item">
-                                                <a class="sidebar-link" href="{{ url('admin/usuarios') }}">
+                                                <a class="sidebar-link" href="{{ url('usuarios') }}">
                                                     <span class="icon-small"></span> Usuarios
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="{{ url('roles') }}">
+                                                    <span class="icon-small"></span> Roles
                                                 </a>
                                             </li>
                                           
