@@ -27,15 +27,17 @@ use App\Http\Controllers\SaludosController ;
 Route::get('/saludo_controlador', [SaludosController::class, 'index']);
 
 
-Route::group(['middleware' => ['role:admin']], function () { 
+Route::group(['middleware' => ['role:Administrador']], function () { 
   
 
 
-  Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index']);
+  Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index'])->middleware('permission:administrar|actualizar');
   Route::post('userStore', [App\Http\Controllers\UserController::class, 'store']);
   Route::post('userUpdate', [App\Http\Controllers\UserController::class, 'update']);
   Route::post('userEdit', [App\Http\Controllers\UserController::class, 'edit']);
   Route::get('userDestroy/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+
+  Route::post('UserRoleUpdate', [App\Http\Controllers\UserRoleController::class, 'update'])->middleware('permission:administrar|actualizar');
 
 
   Route::resource("roles", App\Http\Controllers\RoleController::class);
@@ -51,7 +53,7 @@ Route::group(['middleware' => ['role:admin']], function () {
  });
 
 
-
+ Route::post('UserRoleEdit', [App\Http\Controllers\UserRoleController::class, 'edit']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();

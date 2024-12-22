@@ -92,6 +92,7 @@ function RoleStore() {
         })
         .catch(function(response) {
           //handle error
+          
           console.log(response);
         });
     }
@@ -129,13 +130,15 @@ function RoleStore() {
     })
       .then(function(response) {
         //handle success
-      //  var contentdiv = document.getElementById("mycontent_detail");
-      //  contentdiv.innerHTML = response.data;
-        alert("Permisos Actualizados Correctamente");
+     //var contentdiv = document.getElementById("mycontent_detail");
+       //contentdiv.innerHTML = response.data;
+       alert("Permisos Actualizados Correctamente");
+       
         window.location.reload();
       })
       .catch(function(response) {
         //handle error
+        
         console.log(response);
       });
   }

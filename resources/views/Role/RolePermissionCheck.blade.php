@@ -5,7 +5,7 @@
         name="permissionList[]" 
         type="checkbox" 
         id="flexCheckDefault{{$permission->id}}" 
-        value="{{$permission->id}}" 
+        value="{{$permission->name}}" 
         {{ in_array($permission->id, $assignedPermissions) ? 'checked' : '' }}> <!-- Marcado si está asignado -->
 
     <label class="form-check-label" for="flexCheckDefault{{$permission->id}}">
