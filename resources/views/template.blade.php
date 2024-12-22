@@ -164,9 +164,7 @@
                                     </li>
                                     @endcanany
                                    
-                                    <li>
-                                        <span class="sidebar-divider"></span>
-                                    </li>
+                                 
                             
                                  
                                     @canany(["administrar","invitado"])
@@ -202,6 +200,9 @@
                                         </ul>
                                     </li>
                                     @endcanany
+                                    <li>
+                                        <span class="sidebar-divider"></span>
+                                    </li>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link" href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
