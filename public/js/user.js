@@ -51,11 +51,11 @@ function userStore() {
 
 function userDestroy(id) {
     if (confirm("Esta seguro de Eliminar?")) {
-        var formData = new FormData(document.getElementById("user"));
+        var formData = new FormData();
         formData.append("id", id);
         axios({
-                method: 'post',
-                url: "../userDestroy",
+                method: 'get',
+                url: "../userDestroy/"+ id,
                 data: formData,
                 headers: {
                     'Content-Type': 'multipart/form-data'
