@@ -90,7 +90,7 @@
                                     <!-- Home -->
                                     <!-- ---------------------------------- -->
                                     <li class="nav-small-cap">
-                                        <span class="hide-menu">Indicadores de Desempeño</span>
+                                        <span class="hide-menu">Indicadores de Salud</span>
                                     </li>
                                     <!-- ---------------------------------- -->
                                     <!-- Dashboard -->
