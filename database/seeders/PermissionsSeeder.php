@@ -22,24 +22,24 @@ class PermissionsSeeder extends Seeder
 
 
         //permisos
-        //  Permission::create(['name' => 'clientes']);
-        //  Permission::create(['name' => 'usuarios']);
-        //  Permission::create(['name' => 'blogs']);
-        //  Permission::create(['name' => 'proyectos']);
-        //  Permission::create(['name' => 'imagenes']);
 
-
-        Permission::create(['name' => 'asistir']);
-        $role3 = Role::create(['name' => 'Asistencial']);
-        $role3->syncPermissions("asistir");
-        Permission::create(['name' => 'invitado']);
-        $role4 = Role::create(['name' => 'Invitado']);
-        $role4->syncPermissions("invitado");
+        Permission::create(['name' => 'usuarios']);
+        Permission::create(['name' => 'roles']);
 
         Permission::create(['name' => 'agregar']);
         Permission::create(['name' => 'editar']);
         Permission::create(['name' => 'actualizar']);
         Permission::create(['name' => 'eliminar']);
+
+
+        Permission::create(['name' => 'asistencial']);
+        $role3 = Role::create(['name' => 'Asistencial']);
+        $role3->syncPermissions("asistencial");
+        Permission::create(['name' => 'invitado']);
+        $role4 = Role::create(['name' => 'Invitado']);
+        $role4->syncPermissions("invitado");
+
+    
 
         Permission::create(['name' => 'administrar']);
         $role = Role::create(['name' => 'Administrador']);

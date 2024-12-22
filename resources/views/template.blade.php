@@ -95,46 +95,7 @@
                                     <!-- ---------------------------------- -->
                                     <!-- Dashboard -->
                                     <!-- ---------------------------------- -->
-                          
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" href="https://diredsaa.gob.pe/desempeno/" aria-expanded="false">
-                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
-                                            font-weight: bold;"><b>DESEMPEÑO</b> </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" href="https://diredsaa.gob.pe/gestion/" aria-expanded="false">
-                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
-                                            font-weight: bold;"><b> GESTIÓN</b> </span>
-                                           
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" href="https://diredsaa.gob.pe/fed-2023-2024/" aria-expanded="false">
-                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
-                                            font-weight: bold;"><b>FED 2024-2025</b> </span>
-                                            
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" href="https://diredsaa.gob.pe/seguimiento/" aria-expanded="false">
-                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
-                                            font-weight: bold;"><b>SEGUIMIENTO</b> </span>
-                                          
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
-                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
-                                            font-weight: bold;"><b>PADRON NOMINAL</b> </span>
-                                           
-                                        </a>
-                                    </li>
+                                  
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
@@ -144,7 +105,41 @@
                                     {{-- <li class="nav-small-cap">
                                         <span class="hide-menu">Módulos</span>
                                     </li> --}}
+                                    
+                                    @canany(["administrar","asistencial"])
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link has-arrow " href="javascript:void(0)"
+                                            aria-expanded="false">
+                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                            <span class="hide-menu">Indicadores Salud</span>
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level">
+                                        
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/desempeno/">
+                                                    <span class="icon-small"></span>DESEMPEÑO
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/gestion/">
+                                                    <span class="icon-small"></span>GESTIÓN
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/fed-2023-2024/">
+                                                    <span class="icon-small"></span>FED 2024-2025
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/seguimiento/">
+                                                    <span class="icon-small"></span>SEGUIMIENTO
+                                                </a>
+                                            </li>
 
+                                        </ul>
+                                    </li>
+                                    @endcanany
+                                    @canany(["administrar","usuarios"])
                                     <li class="sidebar-item">
                                         <a class="sidebar-link has-arrow " href="javascript:void(0)"
                                             aria-expanded="false">
@@ -167,11 +162,54 @@
 
                                         </ul>
                                     </li>
-                              
+                                    @endcanany
                                    
-                                    
-                                   
-
+                                    <li>
+                                        <span class="sidebar-divider"></span>
+                                    </li>
+                            
+                                 
+                                    @canany(["administrar","invitado"])
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link has-arrow " href="javascript:void(0)"
+                                            aria-expanded="false">
+                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                            <span class="hide-menu">Seguimiento</span>
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level">
+                                        
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiNDJkMjczOGUtYmU1Zi00MTY0LWIxNmMtMWMwNWZhNGQzMTdjIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                    <span class="icon-small"></span>Niños
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiNzNkNjI3ZjYtZjlmYi00NzQ5LTljOGMtN2RkMTE2OTg5ZjQ3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                    <span class="icon-small"></span>Gestantes
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiZmM3ZmM0OGMtZGNkNS00OGI1LTgwMTEtNjNjZWQ4YzM0NGQwIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                    <span class="icon-small"></span>Archivo Plano
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiZDUwZWExMWMtMjBiZS00ZGNhLWE4ODMtMWMzODlkMWZkMzNmIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                    <span class="icon-small"></span>Padrón Nominal
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @endcanany
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link" href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
+                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
+                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>Padrón Nominal</b> </span>
+                                           
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
 
@@ -292,10 +330,11 @@
                                                         alt="matdash-img" />
                                                     <div>
                                                         <p class="mb-0 text-primary">
-                                                            {{Auth::user()->name}}
+                                                            {{Auth::user()->names}} {{Auth::user()->firstname}} {{Auth::user()->lastname}}
                                                           </p>
                                                         <span
-                                                        class="text-success fs-11">Pro</span>
+                                                        class="text-success fs-11">{{Auth::user()->roles[0]->name}}</span>
+                                                        
                                                         {{-- <h5 class="mb-0 fs-12 text-black">   {{Auth::user()->name}}
                                                         </h5> --}}
                                                        

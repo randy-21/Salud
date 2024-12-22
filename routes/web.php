@@ -27,33 +27,33 @@ use App\Http\Controllers\SaludosController ;
 Route::get('/saludo_controlador', [SaludosController::class, 'index']);
 
 
-Route::group(['middleware' => ['role:Administrador']], function () { 
+Route::group(['middleware' => ['auth']], function () { 
   
 
 
-  Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index'])->middleware('permission:administrar|actualizar');
-  Route::post('userStore', [App\Http\Controllers\UserController::class, 'store']);
-  Route::post('userUpdate', [App\Http\Controllers\UserController::class, 'update']);
-  Route::post('userEdit', [App\Http\Controllers\UserController::class, 'edit']);
-  Route::get('userDestroy/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+  Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index'])->middleware('permission:administrar|usuarios');
+  Route::post('userStore', [App\Http\Controllers\UserController::class, 'store'])->middleware('permission:administrar|agregar');
+  Route::post('userUpdate', [App\Http\Controllers\UserController::class, 'update'])->middleware('permission:administrar|actualizar');
+  Route::post('userEdit', [App\Http\Controllers\UserController::class, 'edit'])->middleware('permission:administrar|editar');
+  Route::get('userDestroy/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->middleware('permission:administrar|delete');
 
+  Route::post('UserRoleEdit', [App\Http\Controllers\UserRoleController::class, 'edit'])->middleware('permission:administrar|editar');
   Route::post('UserRoleUpdate', [App\Http\Controllers\UserRoleController::class, 'update'])->middleware('permission:administrar|actualizar');
 
+  Route::get('roles', [App\Http\Controllers\RoleController::class, 'index'])->middleware('permission:administrar|roles');
+  Route::post('RoleStore', [App\Http\Controllers\RoleController::class, 'store'])->middleware('permission:administrar|agregar');
+  Route::post('RoleEdit', [App\Http\Controllers\RoleController::class, 'edit'])->middleware('permission:administrar|editar');
+  Route::post('RoleUpdate', [App\Http\Controllers\RoleController::class, 'update'])->middleware('permission:administrar|actualizar');
+  Route::post('RoleDestroy', [App\Http\Controllers\RoleController::class, 'destroy'])->middleware('permission:administrar|eliminar');
+  
 
-  Route::resource("roles", App\Http\Controllers\RoleController::class);
-  Route::post('RoleStore', [App\Http\Controllers\RoleController::class, 'store']);
-  Route::post('RoleEdit', [App\Http\Controllers\RoleController::class, 'edit']);
-  Route::post('RoleUpdate', [App\Http\Controllers\RoleController::class, 'update']);
-  Route::post('RoleDestroy', [App\Http\Controllers\RoleController::class, 'destroy']);
-  Route::post('RoleShow', [App\Http\Controllers\RoleController::class, 'show']);
-
-  Route::post('RolePermissionUpdate', [App\Http\Controllers\RolePermissionController::class, 'update']);
-  Route::post('RolePermissionEdit', [App\Http\Controllers\RolePermissionController::class, 'edit']);
+  Route::post('RolePermissionUpdate', [App\Http\Controllers\RolePermissionController::class, 'update'])->middleware('permission:administrar|actualizar');
+  Route::post('RolePermissionEdit', [App\Http\Controllers\RolePermissionController::class, 'edit'])->middleware('permission:administrar|editar');
 
  });
 
 
- Route::post('UserRoleEdit', [App\Http\Controllers\UserRoleController::class, 'edit']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
