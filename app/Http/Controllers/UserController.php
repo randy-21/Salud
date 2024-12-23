@@ -71,7 +71,7 @@ class UserController extends Controller
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
             $user->names = $request->names;
-            $user->password =  Hash::make($request->password);
+            $user->password =  Hash::make("12345678");
             $user->datebirth = $request->datebirth;
             $user->cellphone = $request->cellphone;
             //file
