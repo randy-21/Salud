@@ -139,31 +139,7 @@
                                         </ul>
                                     </li>
                                     @endcanany
-                                    @canany(["administrar","usuarios"])
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow " href="javascript:void(0)"
-                                            aria-expanded="false">
-                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Usuarios</span>
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level">
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="{{ url('usuarios') }}">
-                                                    <span class="icon-small"></span> Usuarios
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="{{ url('roles') }}">
-                                                    <span class="icon-small"></span> Roles
-                                                </a>
-                                            </li>
-                                          
-                                          
-
-                                        </ul>
-                                    </li>
-                                    @endcanany
-                                   
+                                  
                                  
                             
                                  
@@ -203,6 +179,31 @@
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
+                                    @canany(["administrar","usuarios"])
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link has-arrow " href="javascript:void(0)"
+                                            aria-expanded="false">
+                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                            <span class="hide-menu">Usuarios</span>
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level">
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="{{ url('usuarios') }}">
+                                                    <span class="icon-small"></span> Usuarios
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link" href="{{ url('roles') }}">
+                                                    <span class="icon-small"></span> Roles
+                                                </a>
+                                            </li>
+                                          
+                                          
+
+                                        </ul>
+                                    </li>
+                                    @endcanany
+                                   
                                     <li class="sidebar-item">
                                         <a class="sidebar-link" href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
