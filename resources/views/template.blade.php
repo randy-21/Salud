@@ -17,7 +17,7 @@
     <!-- jQuery -->
 
 
-    <title>Aybar Corp</title>
+    <title>Indicadores de Salud</title>
     <link rel="stylesheet" href="../assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 
@@ -28,10 +28,30 @@
     <script src="{{ asset('js/role.js') }}"></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
+<style>
+    p{
+        font-family: "Russo One", serif;
+        font-style: normal;
+}
+span{
+    font-family: "Russo One", serif;
+    font-style: normal;
+}
+h1{
+    font-family: "Russo One", serif;
+    font-style: normal;
 
+}
+
+
+</style>
 <body>
 
+    
     <!-- Preloader -->
     <div class="preloader"><img src="{{ asset('img/imagen.png') }}" alt="loader" class="lds-ripple img-fluid" /></div>
     <div id="main-wrapper">
@@ -319,8 +339,15 @@
                                         <a class="nav-link" href="javascript:void(0)" id="drop1"
                                             aria-expanded="false">
                                             <div class="d-flex align-items-center gap-2 lh-base">
-                                                <img src="../assets/images/profile/user-1.jpg" class="rounded-circle"
-                                                    width="35" height="35" alt="matdash-img" />
+                                                @if (Auth::user()->photo=="")
+                                                <img src="../assets/images/profile/user-1.jpg"
+                                                class="rounded-circle" width="35" height="35"
+                                                alt="matdash-img" />
+                                                @else
+                                                <img src="{{asset('imageusers/'.Auth::user()->photo)}}"
+                                                class="rounded-circle" width="35" height="35"
+                                                alt="matdash-img" />
+                                                @endif
                                                 <iconify-icon icon="solar:alt-arrow-down-bold"
                                                     class="fs-2"></iconify-icon>
                                             </div>
@@ -329,9 +356,16 @@
                                             aria-labelledby="drop1">
                                             <div class="position-relative px-4 pt-3 pb-2">
                                                 <div class="d-flex align-items-center mb-3 pb-3 border-bottom gap-6">
+                                                    @if (Auth::user()->photo=="")
                                                     <img src="../assets/images/profile/user-1.jpg"
-                                                        class="rounded-circle" width="56" height="56"
-                                                        alt="matdash-img" />
+                                                    class="rounded-circle" width="56" height="56"
+                                                    alt="matdash-img" />
+                                                    @else
+                                                    <img src="{{asset('imageusers/'.Auth::user()->photo)}}"
+                                                    class="rounded-circle" width="56" height="56"
+                                                    alt="matdash-img" />
+                                                    @endif
+                                                    
                                                     <div>
                                                         <p class="mb-0 text-primary">
                                                             {{Auth::user()->names}} {{Auth::user()->firstname}} {{Auth::user()->lastname}}
@@ -1646,9 +1680,9 @@
                 </div>
                 <!-- End Sidebar scroll-->
             </aside> --}}
-
+         
             @yield('content')
-
+          
 
         </div>
         <button
@@ -1944,7 +1978,6 @@
             </div>
         </div>
     </div>
-
 
 
     <div class="dark-transparent sidebartoggler"></div>

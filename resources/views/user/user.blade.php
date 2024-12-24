@@ -14,6 +14,7 @@
                                             <iconify-icon icon="solar:home-2-line-duotone" class="fs-6"></iconify-icon>
                                         </a>
                                     </li>
+  
                                     <li class="breadcrumb-item" aria-current="page">
                                         <span class="badge fw-medium fs-2 bg-primary-subtle text-primary">
                                             Usuarios
@@ -84,6 +85,7 @@
                 <div class="modal-content">
                     <div class="modal-header modal-colored-header bg-success text-white">
                         <h4 class="modal-title text-white" id="success-header-modalLabel">
+                   
                             Usuarios
                         </h4>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
