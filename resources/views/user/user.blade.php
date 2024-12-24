@@ -105,7 +105,7 @@
                             Nombres<input name="names" type="text" class="form-control">
                             Celular<input type="number" name="cellphone" class="form-control"value="99999999">
                             Email<input type="text" name="email" class="form-control">
-                            Contraseña<input type="password" name="password" class="form-control"value="12345678">
+                            Contraseña<input type="password" name="password" class="form-control">
                             <br>
                             Sexo
                             <div class="row text-center">
