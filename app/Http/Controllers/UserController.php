@@ -18,6 +18,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Services\GoogleSheetService;
+use App\Notifications\ChangePassword;
 class UserController extends Controller
 {
     use Notifiable;
@@ -142,12 +143,13 @@ class UserController extends Controller
             $users->cellphone = $request->cellphone;
             $users->email = $request->email;
             $users->sex = $request->sex;
-             $users->password =  Hash::make($request->password);
-            // try {
-            //     $users->assignRole($request->role);
-            // } catch (\Exception $e) {
-            //     return $e->getMessage();
-            // }
+            if ($users->password !="") {
+
+                $users->password =  Hash::make($request->password);
+               // Enviar notificación
+                     $users->notify(new ChangePassword());
+            } 
+         
 
             $users->save();
         } else {
