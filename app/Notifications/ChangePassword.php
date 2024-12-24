@@ -44,7 +44,8 @@ class ChangePassword extends Notification
         ->subject(Lang::get('Indicadores de Salud : Su contraseña se ha modificado'))
         ->line(Lang::get('Su contraseña se ha modificado'))
         ->line(Lang::get('Si tu no realizaste el cambio, puedes restaurar tu contraseña desde :'))
-        ->action(Lang::get('Cambiar contraseña'), url(config('app.url')."/password/reset"));
+        ->action(Lang::get('Cambiar contraseña'), url(config('app.url')."/password/reset"))
+        ->salutation('Saludos, El Equipo de Indicadores de Salud');
     }
 
     /**
