@@ -28,10 +28,10 @@
       <div class="d-flex align-items-center justify-content-center w-100">
         <div class="row  w-100 my-0 my-xl-0">
         <div class="col-6 text-start"  >
-        <img src="{{asset('img/cropped-redlogo.png')}}"width="80px" alt="" style="margin-bottom:0px" srcset="">
+        <img src="{{asset('img/cropped-redlogo.png')}}"width="80px" alt="" style="margin-top:-5px" srcset="">
         </div>
         <div class="col-6 text-end"  >
-        <img src="{{asset('img/EMCABEZADO UEIT _ESTADISTICA.png')}}"width="350px" alt="" srcset="">
+        <img src="{{asset('img/EMCABEZADO UEIT _ESTADISTICA.png')}}"style="margin-top:-5px"width="350px" alt="" srcset="">
         </div>
           <div class="col-md-12 justify-content-center d-flex flex-column justify-content-center">
             @yield("content")
