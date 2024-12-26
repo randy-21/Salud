@@ -37,7 +37,9 @@
                     <div class="col-lg-11">
                       <div class="card-body">
                         <a href="../../index.html" class="text-nowrap logo-img d-block mb-4 w-100 text-center">
-                          <img src="{{asset('img/cropped-redlogo.png')}}"width="50px" class="dark-logo" alt="Logo-Dark" />
+                          <img src="{{asset('img/cropped-redlogo.png')}}"width="150px" class="dark-logo" alt="Logo-Dark" />
+                       
+                          
                         </a>
                         <p class="text-muted">Por favor ingrese la dirección de correo electrónico asociada con su cuenta y le enviaremos un enlace para restablecer su contraseña.</p>
                     
@@ -65,7 +67,10 @@
                         
                          
                           <a href="../../login" class="btn bg-primary-subtle text-primary w-100 py-8 mb-4 rounded-1">Regresa al login</a>
+                          <div class="text-center">
 
+                            <img src="{{asset('img/EMCABEZADO UEIT _ESTADISTICA.png')}}"width="250px"height="50px" class="dark-logo" alt="Logo-Dark" />
+                          </div>
                         </form>
 
                       </div>

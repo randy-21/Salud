@@ -110,7 +110,10 @@
                   style="font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#F6A42C">
                   <span style="color:white; font-size: 1em;">Ingresar</span>
               </button>
+              <div class="text-center">
 
+                <img src="{{asset('img/EMCABEZADO UEIT _ESTADISTICA.png')}}"width="90%" class="dark-logo" alt="Logo-Dark" />
+              </div>
                 
                   {{-- <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-medium">New to MatDash?</p>
