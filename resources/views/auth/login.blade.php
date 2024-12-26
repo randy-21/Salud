@@ -15,7 +15,35 @@
 
   <title>Indicadores de Salud</title>
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<style>
+p{
+    font-family: "Russo One", serif;
+    font-style: normal;
+}
+span{
+font-family: "Russo One", serif;
+font-style: normal;
+}
+h1{
+font-family: "Russo One", serif;
+font-style: normal;
 
+}
+h2{
+font-family: "Russo One", serif;
+font-style: normal;
+
+}
+label{
+font-family: "Russo One", serif;
+font-style: normal;
+
+}
+</style>
 <body>
   <!-- Preloader -->
   <div class="preloader">
@@ -34,7 +62,7 @@
                   <img src="{{asset('img/cropped-redlogo.png')}}" class="dark-logo" alt="Logo-Dark" width="40%" />
                  
                 </a>
-                <h2 class="mb-2 mt-4 fs-7 fw-bolder">Iniciar Sesión</h2>
+                <h2 class="mb-2 mt-4 fs-7 fw-bolder text-center">Iniciar Sesión</h2>
                 {{-- <p class="mb-9">Your Admin Dashboard</p> --}}
                 <div class="row">
                   <div class="col-12 mb-2 mb-sm-0">

@@ -17,6 +17,27 @@
   <title>Indicadores de Salud</title>
 </head>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<style>
+p{
+    font-family: "Russo One", serif;
+    font-style: normal;
+}
+span{
+font-family: "Russo One", serif;
+font-style: normal;
+}
+h1{
+font-family: "Russo One", serif;
+font-style: normal;
+
+}
+
+
+</style>
 <body>
   <!-- Preloader -->
   <div class="preloader">
