@@ -214,7 +214,7 @@ function userUpdateProfile() {
         })
         .then(function(response) {
             //handle success
-            var contentdiv = document.getElementById("mycontent");
+         //   var contentdiv = document.getElementById("mycontent");
            // contentdiv.innerHTML = response.data;
          alert('Modificado correctamente');
          window.location.reload();

@@ -188,31 +188,33 @@ class UserController extends Controller
     }
     public function updateProfile(Request $request)
     {
-        
-     //  $request->datebirth = datebirth($request->day, $request->month, $request->year);
-     //  if ($request->photo == "") {
-           $users = User::find($request->id);
-                     $users->cellphone = $request->cellphone;
-                         $users->names = $request->names;
-      $users->firstname = $request->firstname;
-      $users->lastname = $request->lastname;
 
-        $users->sex=   $request->sex;
-  
-     //      $users->datebirth = $request->datebirth;
-     //      $users->cellphone = $request->cellphone;
+        $request->datebirth = datebirth($request->day, $request->month, $request->year);
+        //  if ($request->photo == "") {
+        $users = User::find($request->id);
+        $users->cellphone = $request->cellphone;
+        $users->names = $request->names;
+        $users->firstname = $request->firstname;
+        $users->lastname = $request->lastname;
 
-           $users->save();
-     //  } else {
-      //      $table = User::find($request->id);
-      //      fileDestroy($table->photo, "imageusers");
-       //     $request->photo = fileStore($request->file('photo'), "imageusers");
-      //      $users = User::find($request->id);
-       //     $users->datebirth = $request->datebirth;
-       //     $users->cellphone = $request->cellphone;
-       //     $users->photo = $request->photo;
-       //     $users->save();
-      // }
+        $users->sex =   $request->sex;
+
+        $users->datebirth = $request->datebirth;
+        $users->cellphone = $request->cellphone;
+
+        if ($request->photo != "") {
+            $table = User::find($request->id);
+            fileDestroy($table->photo, "imageusers");
+            $request->photo = fileStore($request->file('photo'), "imageusers");
+            $users->photo = $request->photo;
+        }
+        if ($request->password!="") {
+            $users->password =  Hash::make($request->password);
+        }
+
+
+        $users->save();
+    
     }
 
   
