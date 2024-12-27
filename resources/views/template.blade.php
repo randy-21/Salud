@@ -21,9 +21,9 @@
     <link rel="stylesheet" href="../assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 
-    <link href="{{asset('css/template.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/template.css') }}" rel="stylesheet">
     <script src="{{ asset('js/user.js') }}"></script>
-   
+
     <script src="{{ asset('js/function.js') }}"></script>
     <script src="{{ asset('js/role.js') }}"></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
@@ -33,25 +33,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <style>
-    p{
+    p {
         font-family: "Russo One", serif;
         font-style: normal;
-}
-span{
-    font-family: "Russo One", serif;
-    font-style: normal;
-}
-h1{
-    font-family: "Russo One", serif;
-    font-style: normal;
+    }
 
-}
+    span {
+        font-family: "Russo One", serif;
+        font-style: normal;
+    }
 
+    h1 {
+        font-family: "Russo One", serif;
+        font-style: normal;
 
+    }
 </style>
+
 <body>
 
-    
+
     <!-- Preloader -->
     <div class="preloader"><img src="{{ asset('img/imagen.png') }}" alt="loader" class="lds-ripple img-fluid" /></div>
     <div id="main-wrapper">
@@ -96,7 +97,8 @@ h1{
                         <div class="sidebarmenu">
                             <div class="brand-logo d-flex align-items-center nav-logo">
                                 <a href="{{ url('/') }}" class="text-nowrap logo-img">
-                                    <img src="{{ asset('img/imagen.png') }}"width="100%" style="border-radius: 0px" alt="Logo" />
+                                    <img src="{{ asset('img/imagen.png') }}"width="100%" style="border-radius: 0px"
+                                        alt="Logo" />
                                 </a>
 
                             </div>
@@ -109,129 +111,188 @@ h1{
                                     <!-- ---------------------------------- -->
                                     <!-- Home .-->
                                     <!-- ---------------------------------- -->
-                                    <li class="nav-small-cap">
+                                    <li class="nav-small-cap btn btn-danger w-100">
                                         <span class="hide-menu">Indicadores de Salud</span>
                                     </li>
                                     <!-- ---------------------------------- -->
                                     <!-- Dashboard -->
                                     <!-- ---------------------------------- -->
-                                  
+
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
-                             
-                                   
+
+
 
                                     {{-- <li class="nav-small-cap">
                                         <span class="hide-menu">Módulos</span>
                                     </li> --}}
-                                    
-                                    @canany(["administrar","asistencial"])
+
+                                    @canany(['administrar', 'asistencial'])
+                                        <li class="sidebar-item"style="color:white">
+                                            <a class="sidebar-link has-arrow  btn btn-primary" href="javascript:void(0)"
+                                                aria-expanded="false">
+                                                <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">Indicadores Salud</span>
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level">
+
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link"
+                                                        target="_blank"href="https://diredsaa.gob.pe/desempeno/">
+                                                        <span class="icon-small"></span>DESEMPEÑO
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link"
+                                                        target="_blank"href="https://diredsaa.gob.pe/gestion/">
+                                                        <span class="icon-small"></span>GESTIÓN
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link"
+                                                        target="_blank"href="https://diredsaa.gob.pe/fed-2023-2024/">
+                                                        <span class="icon-small"></span>FED 2024-2025
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link"
+                                                        target="_blank"href="https://diredsaa.gob.pe/seguimiento/">
+                                                        <span class="icon-small"></span>SEGUIMIENTO
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    @endcanany
+
+
+
+
+                                    @canany(['administrar', 'invitado'])
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
+                                                aria-expanded="false">
+                                                <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">Seguimiento</span>
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level">
+
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiNDJkMjczOGUtYmU1Zi00MTY0LWIxNmMtMWMwNWZhNGQzMTdjIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Niños
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiNzNkNjI3ZjYtZjlmYi00NzQ5LTljOGMtN2RkMTE2OTg5ZjQ3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Gestantes
+                                                    </a>
+                                                </li>
+
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiZmM3ZmM0OGMtZGNkNS00OGI1LTgwMTEtNjNjZWQ4YzM0NGQwIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Archivo Plano
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiZDUwZWExMWMtMjBiZS00ZGNhLWE4ODMtMWMzODlkMWZkMzNmIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Padrón Nominal
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    @endcanany
+                                    @canany(['administrar', 'personal'])
                                     <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow " href="javascript:void(0)"
+                                        <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
                                             aria-expanded="false">
                                             <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Indicadores Salud</span>
+                                            <span class="hide-menu">Reportes</span>
                                         </a>
                                         <ul aria-expanded="false" class="collapse first-level">
-                                        
+
                                             <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/desempeno/">
-                                                    <span class="icon-small"></span>DESEMPEÑO
+                                                <a class="sidebar-link" target="_blank"
+                                                    href="https://app.powerbi.com/view?r=eyJrIjoiYzI4ZWNkNzgtZjdiZS00YzZmLWE3MGYtZmYyN2UyYmYxZmUyIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                    <span class="icon-small"></span>Digitación
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/gestion/">
-                                                    <span class="icon-small"></span>GESTIÓN
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/fed-2023-2024/">
-                                                    <span class="icon-small"></span>FED 2024-2025
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://diredsaa.gob.pe/seguimiento/">
-                                                    <span class="icon-small"></span>SEGUIMIENTO
+                                                <a class="sidebar-link" target="_blank"
+                                                    href="https://app.powerbi.com/view?r=eyJrIjoiZTZmYzcxNjEtMGYwNy00MTYyLWIyMjUtOTZiNTNiMWNjMDE3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                    <span class="icon-small"></span>Reporte 40
                                                 </a>
                                             </li>
 
+                                          
                                         </ul>
                                     </li>
-                                    @endcanany
-                                  
-                                 
-                            
-                                 
-                                    @canany(["administrar","invitado"])
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow " href="javascript:void(0)"
-                                            aria-expanded="false">
-                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Seguimiento</span>
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level">
-                                        
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiNDJkMjczOGUtYmU1Zi00MTY0LWIxNmMtMWMwNWZhNGQzMTdjIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Niños
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiNzNkNjI3ZjYtZjlmYi00NzQ5LTljOGMtN2RkMTE2OTg5ZjQ3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Gestantes
-                                                </a>
-                                            </li>
-                                        
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiZmM3ZmM0OGMtZGNkNS00OGI1LTgwMTEtNjNjZWQ4YzM0NGQwIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Archivo Plano
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="https://app.powerbi.com/view?r=eyJrIjoiZDUwZWExMWMtMjBiZS00ZGNhLWE4ODMtMWMzODlkMWZkMzNmIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Padrón Nominal
-                                                </a>
-                                            </li>
-                                        </ul>
+                                @endcanany
+                                    <li>
+                                        <span class="sidebar-divider"></span>
                                     </li>
+                                    @canany(['administrar', 'usuarios'])
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
+                                                aria-expanded="false">
+                                                <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">Usuarios</span>
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level">
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link"href="{{ url('usuarios') }}">
+                                                        <span class="icon-small"></span> Usuarios
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank" href="{{ url('roles') }}">
+                                                        <span class="icon-small"></span> Roles
+                                                    </a>
+                                                </li>
+
+
+
+                                            </ul>
+                                        </li>
                                     @endcanany
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
-                                    @canany(["administrar","usuarios"])
                                     <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow " href="javascript:void(0)"
-                                            aria-expanded="false">
-                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Usuarios</span>
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level">
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="{{ url('usuarios') }}">
-                                                    <span class="icon-small"></span> Usuarios
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" href="{{ url('roles') }}">
-                                                    <span class="icon-small"></span> Roles
-                                                </a>
-                                            </li>
-                                          
-                                          
-
-                                        </ul>
-                                    </li>
-                                    @endcanany
-                                    <li>
-                                        <span class="sidebar-divider"></span>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
+                                        <a class="sidebar-link btn btn-success" target="_blank"
+                                            href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-                                            <span class="hide-menu" style="   font-family: 'Arial Black', Arial, sans-serif;
-                                            font-weight: bold;"><b>Padrón Nominal</b> </span>
-                                           
+                                            <span class="hide-menu"
+                                                style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>PADRÓN
+                                                    NOMINAL</b> </span>
+
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link btn btn-success" target="_blank"
+                                            href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
+                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
+                                            <span class="hide-menu"
+                                                style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>HIS
+                                                    MINSA</b> </span>
+
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link btn btn-success" target="_blank"
+                                            href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
+                                            <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
+                                            <span class="hide-menu"
+                                                style="   font-family: 'Arial Black', Arial, sans-serif;
+                                            font-weight: bold;"><b>SIHCE</b>
+                                            </span>
+
                                         </a>
                                     </li>
                                 </ul>
@@ -339,14 +400,14 @@ h1{
                                         <a class="nav-link" href="javascript:void(0)" id="drop1"
                                             aria-expanded="false">
                                             <div class="d-flex align-items-center gap-2 lh-base">
-                                                @if (Auth::user()->photo=="")
-                                                <img src="../assets/images/profile/user-1.jpg"
-                                                class="rounded-circle" width="35" height="35"
-                                                alt="matdash-img" />
+                                                @if (Auth::user()->photo == '')
+                                                    <img src="../assets/images/profile/user-1.jpg"
+                                                        class="rounded-circle" width="35" height="35"
+                                                        alt="matdash-img" />
                                                 @else
-                                                <img src="{{asset('imageusers/'.Auth::user()->photo)}}"
-                                                class="rounded-circle" width="35" height="35"
-                                                alt="matdash-img" />
+                                                    <img src="{{ asset('imageusers/' . Auth::user()->photo) }}"
+                                                        class="rounded-circle" width="35" height="35"
+                                                        alt="matdash-img" />
                                                 @endif
                                                 <iconify-icon icon="solar:alt-arrow-down-bold"
                                                     class="fs-2"></iconify-icon>
@@ -356,26 +417,27 @@ h1{
                                             aria-labelledby="drop1">
                                             <div class="position-relative px-4 pt-3 pb-2">
                                                 <div class="d-flex align-items-center mb-3 pb-3 border-bottom gap-6">
-                                                    @if (Auth::user()->photo=="")
-                                                    <img src="../assets/images/profile/user-1.jpg"
-                                                    class="rounded-circle" width="56" height="56"
-                                                    alt="matdash-img" />
+                                                    @if (Auth::user()->photo == '')
+                                                        <img src="../assets/images/profile/user-1.jpg"
+                                                            class="rounded-circle" width="56" height="56"
+                                                            alt="matdash-img" />
                                                     @else
-                                                    <img src="{{asset('imageusers/'.Auth::user()->photo)}}"
-                                                    class="rounded-circle" width="56" height="56"
-                                                    alt="matdash-img" />
+                                                        <img src="{{ asset('imageusers/' . Auth::user()->photo) }}"
+                                                            class="rounded-circle" width="56" height="56"
+                                                            alt="matdash-img" />
                                                     @endif
-                                                    
+
                                                     <div>
                                                         <p class="mb-0 text-primary">
-                                                            {{Auth::user()->names}} {{Auth::user()->firstname}} {{Auth::user()->lastname}}
-                                                          </p>
+                                                            {{ Auth::user()->names }} {{ Auth::user()->firstname }}
+                                                            {{ Auth::user()->lastname }}
+                                                        </p>
                                                         <span
-                                                        class="text-success fs-11">{{Auth::user()->roles[0]->name}}</span>
-                                                        
+                                                            class="text-success fs-11">{{ Auth::user()->roles[0]->name }}</span>
+
                                                         {{-- <h5 class="mb-0 fs-12 text-black">   {{Auth::user()->name}}
                                                         </h5> --}}
-                                                       
+
                                                     </div>
                                                 </div>
                                                 <div class="message-body">
@@ -1680,9 +1742,9 @@ h1{
                 </div>
                 <!-- End Sidebar scroll-->
             </aside> --}}
-         
+
             @yield('content')
-          
+
 
         </div>
         <button
@@ -1698,8 +1760,7 @@ h1{
                 <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">
                     Settings
                 </h4>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body" data-simplebar style="height: calc(100vh - 80px)">
                 <h6 class="fw-semibold fs-4 mb-2">Theme</h6>
@@ -1773,8 +1834,8 @@ h1{
                         autocomplete="off" />
                     <label
                         class="btn p-9 btn-outline-primary rounded-2 d-flex align-items-center justify-content-center"
-                        onclick="handleColorTheme('Green_Theme')" for="green-theme-layout"
-                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="GREEN_THEME">
+                        onclick="handleColorTheme('Green_Theme')" for="green-theme-layout" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-title="GREEN_THEME">
                         <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-4">
                             <i class="ti ti-check text-white d-flex icon fs-5"></i>
                         </div>
@@ -1795,8 +1856,8 @@ h1{
                         autocomplete="off" />
                     <label
                         class="btn p-9 btn-outline-primary rounded-2 d-flex align-items-center justify-content-center"
-                        onclick="handleColorTheme('Orange_Theme')" for="orange-theme-layout"
-                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="ORANGE_THEME">
+                        onclick="handleColorTheme('Orange_Theme')" for="orange-theme-layout" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-title="ORANGE_THEME">
                         <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-6">
                             <i class="ti ti-check text-white d-flex icon fs-5"></i>
                         </div>
@@ -1824,14 +1885,12 @@ h1{
                 <h6 class="mt-5 fw-semibold fs-4 mb-2">Container Option</h6>
 
                 <div class="d-flex flex-row gap-3 customizer-box" role="group">
-                    <input type="radio" class="btn-check" name="layout" id="boxed-layout"
-                        autocomplete="off" />
+                    <input type="radio" class="btn-check" name="layout" id="boxed-layout" autocomplete="off" />
                     <label class="btn p-9 btn-outline-primary rounded-2" for="boxed-layout">
                         <i class="icon ti ti-layout-distribute-vertical fs-7 me-2"></i>Boxed
                     </label>
 
-                    <input type="radio" class="btn-check" name="layout" id="full-layout"
-                        autocomplete="off" />
+                    <input type="radio" class="btn-check" name="layout" id="full-layout" autocomplete="off" />
                     <label class="btn p-9 btn-outline-primary rounded-2" for="full-layout">
                         <i class="icon ti ti-layout-distribute-horizontal fs-7 me-2"></i>Full
                     </label>
@@ -2252,7 +2311,7 @@ h1{
                     ['view', ['fullscreen', 'codeview', 'help']],
                     ['history', ['undo', 'redo']]
                 ]
-             
+
             });
         });
     </script>
@@ -2271,10 +2330,10 @@ h1{
     </script> --}}
 
 
- <!-- solar icons -->
+    <!-- solar icons -->
 
- {{-- <script src="{{ asset('assets/js/plugins/colorpicker-init.js') }}"defer></script> --}}
- 
+    {{-- <script src="{{ asset('assets/js/plugins/colorpicker-init.js') }}"defer></script> --}}
+
 
 </body>
 
