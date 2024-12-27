@@ -75,6 +75,7 @@ class UserController extends Controller
             $user->password =  Hash::make("12345678");
             $user->datebirth = $request->datebirth;
             $user->cellphone = $request->cellphone;
+            $user->ipress = $request->ipress;
             //file
             if ($request->file('photo') != null) {
                 $request->photo = fileStore($request->file('photo'), "imageusers");
@@ -142,6 +143,7 @@ class UserController extends Controller
             $users->datebirth = $request->datebirth;
             $users->cellphone = $request->cellphone;
             $users->email = $request->email;
+            $users->ipress = $request->ipress;
             $users->sex = $request->sex;
             if ($users->password !="") {
 
@@ -165,8 +167,14 @@ class UserController extends Controller
             $users->cellphone = $request->cellphone;
             $users->email = $request->email;
             $users->sex = $request->sex;
+            $users->ipress = $request->ipress;
             $users->photo = $request->photo;
-               $users->password =  Hash::make($request->password);
+            if ($users->password !="") {
+
+                $users->password =  Hash::make($request->password);
+               // Enviar notificación
+                     $users->notify(new ChangePassword());
+            } 
             $users->save();
         }
         
@@ -196,7 +204,7 @@ class UserController extends Controller
         $users->names = $request->names;
         $users->firstname = $request->firstname;
         $users->lastname = $request->lastname;
-
+        $users->ipress = $request->ipress;
         $users->sex =   $request->sex;
 
         $users->datebirth = $request->datebirth;

@@ -141,7 +141,8 @@
                                        
                                         Celular<input type="number" name="cellphone" class="form-control"
                                         value="{{Auth::user()->cellphone}}">
-                                   
+                                        IPRESS<input type="number" name="ipress" class="form-control"
+                                        value="{{Auth::user()->ipress}}">
                                      
                                            
                              

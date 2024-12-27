@@ -1,28 +1,4 @@
-function userCreate() {
 
-    axios({
-            method: 'post',
-            url: '../userCreate',
-         //   data: formData,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(function(response) {
-            //handle success
-            var contentdiv = document.getElementById("mycontent");
-            contentdiv.innerHTML = response.data;
-                 //carga pdf- csv - excel
-                 datatable_load();
-
-
-        })
-        .catch(function(response) {
-            //handle error
-            console.log(response);
-        });
-
-}
 function userStore() {
     var formData = new FormData(document.getElementById("user"));
     axios({
@@ -121,6 +97,7 @@ function userEdit(id) {
             user.firstname.value = response.data["firstname"];
             user.lastname.value = response.data["lastname"];
             user.names.value = response.data["names"];
+            user.ipress.value = response.data["ipress"];
 
             if(response.data["photo"]!=null){
 

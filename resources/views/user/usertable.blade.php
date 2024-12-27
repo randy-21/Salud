@@ -17,8 +17,12 @@
             <th>Nombres</th>
             <th>Celular </th>
             <th>Email</th>
-            <th>Foto</th>
+            <th>IPRESS</th>
             <th>Rol ó Cargo</th>
+
+            <th>Foto</th>
+
+        
 
         </tr>
         <!-- end row -->
@@ -92,24 +96,27 @@
                     {{ $users->cellphone }}
                 </td>
                 <td>{{ $users->email }}</td>
-                <td>
-                @if ($users->photo == '' && $users->sex == 'M')
-                    @php
-                        $users->photo = '../Recurso 23.png';
-                    @endphp
-                @elseif($users->photo == '' && $users->sex == 'F')
-                    @php
-                        $users->photo = '../Recurso 23.png';
-                    @endphp
-                @endif
               
+                <td>
+                    {{$users->ipress }}
+                </td>
                 <td>
 
                     @foreach ($users->roles as $item)
                         {{ $item->name }}
                     @endforeach
                 </td>
-
+                <td>
+                    @if ($users->photo == '' && $users->sex == 'M')
+                        @php
+                            $users->photo = '../Recurso 23.png';
+                        @endphp
+                    @elseif($users->photo == '' && $users->sex == 'F')
+                        @php
+                            $users->photo = '../Recurso 23.png';
+                        @endphp
+                    @endif
+                    </td>
 
             </tr>
         @endforeach

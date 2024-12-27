@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("lastname");
             $table->string("names");
             $table->string("password");
+            $table->string("ipress")->nullable();
             $table->date("datebirth")->nullable();
             $table->string("cellphone",20)->nullable();
             $table->longText("photo")->nullable();
