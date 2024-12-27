@@ -193,13 +193,13 @@
 
                                                 <li class="sidebar-item">
                                                     <a class="sidebar-link" target="_blank"
-                                                        href="https://app.powerbi.com/view?r=eyJrIjoiZmM3ZmM0OGMtZGNkNS00OGI1LTgwMTEtNjNjZWQ4YzM0NGQwIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiNDYyMzg1ZGUtMmJmNi00MGFkLTliYTYtYWQ4YjI4ZDBjZDY1IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
                                                         <span class="icon-small"></span>Archivo Plano
                                                     </a>
                                                 </li>
                                                 <li class="sidebar-item">
                                                     <a class="sidebar-link" target="_blank"
-                                                        href="https://app.powerbi.com/view?r=eyJrIjoiZDUwZWExMWMtMjBiZS00ZGNhLWE4ODMtMWMzODlkMWZkMzNmIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiMjU4ZmY0ZjctZmIyZS00ZTBjLWJlZDQtYmVhZmEyOTRjZDZmIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
                                                         <span class="icon-small"></span>Padrón Nominal
                                                     </a>
                                                 </li>
@@ -275,7 +275,7 @@
                                     </li>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link btn btn-success" target="_blank"
-                                            href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
+                                            href="https://websalud.minsa.gob.pe/hisminsa/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
                                             <span class="hide-menu"
                                                 style="   font-family: 'Arial Black', Arial, sans-serif;
@@ -286,7 +286,7 @@
                                     </li>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link btn btn-success" target="_blank"
-                                            href="https://padronnominal.reniec.gob.pe/padronn/" aria-expanded="false">
+                                            href="https://sihce.minsa.gob.pe/" aria-expanded="false">
                                             <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
                                             <span class="hide-menu"
                                                 style="   font-family: 'Arial Black', Arial, sans-serif;
