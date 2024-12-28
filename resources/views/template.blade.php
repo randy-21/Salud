@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon icon-->
-    <link rel="icon" type="image/jpg" href="#" />
+    <link rel="icon" type="image/jpg" href="{{asset('img/imagen.png')}}" />
 
     <!-- Core Css -->
     <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -64,7 +64,7 @@
                 <!-- ---------------------------------- -->
                 <div class="iconbar">
                     <div>
-                        <div class="mini-nav">
+                        <div class="mini-nav"style="background-color: #3fa9ff21">
                             <div class="brand-logo d-flex align-items-center justify-content-center">
                                 <a class="nav-link sidebartoggler" id="headerCollapse" href="javascript:void(0)">
                                     <iconify-icon icon="solar:hamburger-menu-line-duotone"
@@ -105,7 +105,7 @@
                             <!-- ---------------------------------- -->
                             <!-- Dashboard -->
                             <!-- ---------------------------------- -->
-                            <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar>
+                            <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar style="background-color: #3fa9ff21">
                                 <ul class="sidebar-menu" id="sidebarnav">
                                     <a href=""></a>
                                     <!-- ---------------------------------- -->
@@ -207,31 +207,31 @@
                                         </li>
                                     @endcanany
                                     @canany(['administrar', 'personal'])
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
-                                            aria-expanded="false">
-                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Reportes</span>
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
+                                                aria-expanded="false">
+                                                <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">Reportes</span>
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level">
 
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" target="_blank"
-                                                    href="https://app.powerbi.com/view?r=eyJrIjoiYzI4ZWNkNzgtZjdiZS00YzZmLWE3MGYtZmYyN2UyYmYxZmUyIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Digitación
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" target="_blank"
-                                                    href="https://app.powerbi.com/view?r=eyJrIjoiZTZmYzcxNjEtMGYwNy00MTYyLWIyMjUtOTZiNTNiMWNjMDE3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Reporte 40
-                                                </a>
-                                            </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiYzI4ZWNkNzgtZjdiZS00YzZmLWE3MGYtZmYyN2UyYmYxZmUyIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Digitación
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiZTZmYzcxNjEtMGYwNy00MTYyLWIyMjUtOTZiNTNiMWNjMDE3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Reporte 40
+                                                    </a>
+                                                </li>
 
-                                          
-                                        </ul>
-                                    </li>
-                                @endcanany
+
+                                            </ul>
+                                        </li>
+                                    @endcanany
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>

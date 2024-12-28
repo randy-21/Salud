@@ -1,6 +1,6 @@
 @extends('template')
 @section('content')
-    <div class="body-wrapper">
+    <div class="body-wrapper"style="background-color: #3fa9ff21">
         <div class="">
             <div class="card card-body py-3">
                 <div class="row align-items-center">
@@ -29,12 +29,12 @@
             <div class="datatables">
 
                 <!-- start File export -->
-                <div class="card">
+                <div class="card"style="background-color: #3fa9ff21">
                     <div class="card-body">
 
                         <p class="card-subtitle mb-3">
                             <!-- success header modal -->
-                            <button type="button" class="btn mb-1 me-1 bg-success-subtle text-success"
+                            <button type="button" class="btn mb-1 me-1 btn-success"
                                 data-bs-toggle="modal" data-bs-target="#success-header-modal" fdprocessedid="cw61t3"
                                 onclick="New();$('#Role')[0].reset();">
                                 Agregar
