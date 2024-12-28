@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon icon-->
-    <link rel="icon" type="image/jpg" href="{{asset('img/imagen.png')}}" />
+    <link rel="icon" type="image/jpg" href="{{ asset('img/imagen.png') }}" />
 
     <!-- Core Css -->
     <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -105,7 +105,8 @@
                             <!-- ---------------------------------- -->
                             <!-- Dashboard -->
                             <!-- ---------------------------------- -->
-                            <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar style="background-color: #3fa9ff21">
+                            <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar
+                                style="background-color: #3fa9ff21">
                                 <ul class="sidebar-menu" id="sidebarnav">
                                     <a href=""></a>
                                     <!-- ---------------------------------- -->
@@ -441,7 +442,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="message-body">
-                                                    <a href="javascript:void(0)"
+                                                    <a href="perfil"
                                                         class="p-2 dropdown-item h6 rounded-1">
                                                         Mi Perfil
                                                     </a>
@@ -1745,7 +1746,42 @@
 
             @yield('content')
 
-
+            <footer class="bg-dark text-white py-4">
+                <div class="container">
+                    <div class="row">
+                        <!-- Sección de información -->
+                        <div class="col-md-4">
+                            <h4>INDICADORES DE SALUD</h4>
+                            <p>
+                                Somos una empresa dedicada a ofrecer los mejores servicios a nuestros clientes.
+                            </p>
+                        </div>
+                        <!-- Sección de enlaces -->
+                        <div class="col-md-4">
+                            {{-- <h4>Enlaces útiles</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white text-decoration-none">Inicio</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Servicios</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Contacto</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Política de
+                                        privacidad</a></li>
+                            </ul> --}}
+                        </div>
+                        <!-- Sección de contacto -->
+                        <div class="col-md-4">
+                            <h4>SOPORTES / CONSULTAS :</h4>
+                            <p> / 
+                                <i class="bi bi-telephone-fill"></i> WHATSAPP 970973801<br>
+                                <i class="bi bi-envelope-fill"></i> info@ejemplo.com<br>
+                                <i class="bi bi-geo-alt-fill"></i> RANDY JOE MENDOZA SILVA 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">© 2025. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
         <button
             class="btn btn-danger p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn"
