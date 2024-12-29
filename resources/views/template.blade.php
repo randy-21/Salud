@@ -310,7 +310,7 @@
             </div>
         </aside>
         <!--  Sidebar End -->
-        <div class="page-wrapper">
+        <div class="page-wrapper"style="height:100%">
             <!--  Header Start -->
             <header class="topbar">
                 <div class="with-vertical"><!-- ---------------------------------- -->
@@ -1746,7 +1746,7 @@
 
             @yield('content')
 
-            <footer class="bg-dark text-white py-4">
+            <footer class=" text-white py-4" STYLE="background-color: rgb(0, 45, 66)">
                 <div class="container">
                     <div class="row">
                         <!-- Sección de información -->
@@ -1772,7 +1772,7 @@
                             <h4>SOPORTES / CONSULTAS :</h4>
                             <p> / 
                                 <i class="bi bi-telephone-fill"></i> WHATSAPP 970973801<br>
-                                <i class="bi bi-envelope-fill"></i> info@ejemplo.com<br>
+                                <i class="bi bi-envelope-fill"></i> randy21_10@hotmail.com<br>
                                 <i class="bi bi-geo-alt-fill"></i> RANDY JOE MENDOZA SILVA 
                             </p>
                         </div>
@@ -1783,13 +1783,14 @@
                 </div>
             </footer>
         </div>
+    
         <button
             class="btn btn-danger p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn"
             type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample">
             <i class="icon ti ti-settings fs-7"></i>
         </button>
-
+     
         <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
