@@ -64,7 +64,7 @@
                 <!-- ---------------------------------- -->
                 <div class="iconbar">
                     <div>
-                        <div class="mini-nav"style="background-color: #3fa9ff21">
+                        <div class="mini-nav"style="background-color: #e3f2ff">
                             <div class="brand-logo d-flex align-items-center justify-content-center">
                                 <a class="nav-link sidebartoggler" id="headerCollapse" href="javascript:void(0)">
                                     <iconify-icon icon="solar:hamburger-menu-line-duotone"
@@ -106,7 +106,7 @@
                             <!-- Dashboard -->
                             <!-- ---------------------------------- -->
                             <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar
-                                style="background-color: #3fa9ff21">
+                                style="background-color: #e3f2ff">
                                 <ul class="sidebar-menu" id="sidebarnav">
                                     <a href=""></a>
                                     <!-- ---------------------------------- -->
