@@ -62,7 +62,8 @@ font-style: normal;
                   <img src="{{asset('img/cropped-redlogo.png')}}" class="dark-logo" alt="Logo-Dark" width="40%" />
                  
                 </a>
-                <h2 class="mb-2 mt-4 fs-7 fw-bolder text-center">Iniciar Sesión</h2>
+                <h2 class="mb-2 mt-4 fs-7 fw-bolder text-primary text-center">Indicadores de Salud</h2>
+                <h6 class="mb-2 mt-4 fs-7 fw-bolder text-center">Iniciar Sesión</h6>
                 {{-- <p class="mb-9">Your Admin Dashboard</p> --}}
                 <div class="row">
                   <div class="col-12 mb-2 mb-sm-0">

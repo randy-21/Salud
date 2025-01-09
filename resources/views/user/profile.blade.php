@@ -1,6 +1,6 @@
 @extends('template')
 @section('content')
-    <div class="body-wrapper">
+    <div class="body-wrapper"style="background-color: #3fa9ff21">
         <div class=" ">
             <div class="card card-body py-3">
                 <div class="row align-items-center">

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon icon-->
-    <link rel="icon" type="image/jpg" href="#" />
+    <link rel="icon" type="image/jpg" href="{{ asset('img/imagen.png') }}" />
 
     <!-- Core Css -->
     <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -65,7 +65,7 @@
                 <!-- ---------------------------------- -->
                 <div class="iconbar">
                     <div>
-                        <div class="mini-nav">
+                        <div class="mini-nav"style="background-color: #e3f2ff">
                             <div class="brand-logo d-flex align-items-center justify-content-center">
                                 <a class="nav-link sidebartoggler" id="headerCollapse" href="javascript:void(0)">
                                     <iconify-icon icon="solar:hamburger-menu-line-duotone"
@@ -106,7 +106,8 @@
                             <!-- ---------------------------------- -->
                             <!-- Dashboard -->
                             <!-- ---------------------------------- -->
-                            <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar>
+                            <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar
+                                style="background-color: #e3f2ff">
                                 <ul class="sidebar-menu" id="sidebarnav">
                                     <a href=""></a>
                                     <!-- ---------------------------------- -->
@@ -208,26 +209,26 @@
                                         </li>
                                     @endcanany
                                     @canany(['administrar', 'personal'])
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
-                                            aria-expanded="false">
-                                            <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                            <span class="hide-menu">Reportes</span>
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
+                                                aria-expanded="false">
+                                                <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">Reportes</span>
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level">
 
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" target="_blank"
-                                                    href="https://app.powerbi.com/view?r=eyJrIjoiYzI4ZWNkNzgtZjdiZS00YzZmLWE3MGYtZmYyN2UyYmYxZmUyIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Digitación
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link" target="_blank"
-                                                    href="https://app.powerbi.com/view?r=eyJrIjoiZTZmYzcxNjEtMGYwNy00MTYyLWIyMjUtOTZiNTNiMWNjMDE3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
-                                                    <span class="icon-small"></span>Reporte 40
-                                                </a>
-                                            </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiYzI4ZWNkNzgtZjdiZS00YzZmLWE3MGYtZmYyN2UyYmYxZmUyIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Digitación
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" target="_blank"
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiZTZmYzcxNjEtMGYwNy00MTYyLWIyMjUtOTZiNTNiMWNjMDE3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        <span class="icon-small"></span>Reporte 40
+                                                    </a>
+                                                </li>
 
                                           
                                         </ul>
@@ -320,7 +321,7 @@
             </div>
         </aside>
         <!--  Sidebar End -->
-        <div class="page-wrapper">
+        <div class="page-wrapper"style="height:100%">
             <!--  Header Start -->
             <header class="topbar">
                 <div class="with-vertical"><!-- ---------------------------------- -->
@@ -452,7 +453,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="message-body">
-                                                    <a href="javascript:void(0)"
+                                                    <a href="perfil"
                                                         class="p-2 dropdown-item h6 rounded-1">
                                                         Mi Perfil
                                                     </a>
@@ -1756,15 +1757,51 @@
 
             @yield('content')
 
-
+            <footer class=" text-white py-4" STYLE="background-color: rgb(0, 45, 66)">
+                <div class="container">
+                    <div class="row">
+                        <!-- Sección de información -->
+                        <div class="col-md-4">
+                            <h4>INDICADORES DE SALUD</h4>
+                            <p>
+                                Somos una empresa dedicada a ofrecer los mejores servicios a nuestros clientes.
+                            </p>
+                        </div>
+                        <!-- Sección de enlaces -->
+                        <div class="col-md-4">
+                            {{-- <h4>Enlaces útiles</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white text-decoration-none">Inicio</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Servicios</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Contacto</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Política de
+                                        privacidad</a></li>
+                            </ul> --}}
+                        </div>
+                        <!-- Sección de contacto -->
+                        <div class="col-md-4">
+                            <h4>SOPORTES / CONSULTAS :</h4>
+                            <p> / 
+                                <i class="bi bi-telephone-fill"></i> WHATSAPP 970973801<br>
+                                <i class="bi bi-envelope-fill"></i> randy21_10@hotmail.com<br>
+                                <i class="bi bi-geo-alt-fill"></i> RANDY JOE MENDOZA SILVA 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">© 2025. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
+    
         <button
             class="btn btn-danger p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn"
             type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample">
             <i class="icon ti ti-settings fs-7"></i>
         </button>
-
+     
         <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="d-flex align-items-center justify-content-between p-3 border-bottom">

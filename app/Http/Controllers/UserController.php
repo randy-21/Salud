@@ -200,11 +200,9 @@ class UserController extends Controller
         $request->datebirth = datebirth($request->day, $request->month, $request->year);
         //  if ($request->photo == "") {
         $users = User::find($request->id);
-        $users->cellphone = $request->cellphone;
-        $users->names = $request->names;
-        $users->firstname = $request->firstname;
-        $users->lastname = $request->lastname;
-        $users->ipress = $request->ipress;
+    
+      
+     
         $users->sex =   $request->sex;
 
         $users->datebirth = $request->datebirth;
