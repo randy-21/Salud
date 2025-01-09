@@ -41,6 +41,14 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('UserRoleEdit', [App\Http\Controllers\UserRoleController::class, 'edit'])->middleware('permission:administrar|editar');
   Route::post('UserRoleUpdate', [App\Http\Controllers\UserRoleController::class, 'update'])->middleware('permission:administrar|actualizar');
 
+  Route::get('registros', [App\Http\Controllers\RegistryController::class, 'index'])->middleware('permission:administrar|registros');
+  Route::post('registryStore', [App\Http\Controllers\RegistryController::class, 'store'])->middleware('permission:administrar|agregar');
+  Route::post('registryUpdate', [App\Http\Controllers\RegistryController::class, 'update'])->middleware('permission:administrar|actualizar');
+  Route::post('registryEdit', [App\Http\Controllers\RegistryController::class, 'edit'])->middleware('permission:administrar|editar');
+  Route::get('registryDestroy/{id}', [App\Http\Controllers\RegistryController::class, 'destroy'])->middleware('permission:administrar|delete');
+
+
+
   Route::get('roles', [App\Http\Controllers\RoleController::class, 'index'])->middleware('permission:administrar|roles');
   Route::post('RoleStore', [App\Http\Controllers\RoleController::class, 'store'])->middleware('permission:administrar|agregar');
   Route::post('RoleEdit', [App\Http\Controllers\RoleController::class, 'edit'])->middleware('permission:administrar|editar');

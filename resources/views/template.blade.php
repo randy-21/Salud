@@ -26,6 +26,7 @@
 
     <script src="{{ asset('js/function.js') }}"></script>
     <script src="{{ asset('js/role.js') }}"></script>
+    <script src="{{ asset('js/registry.js') }}"></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -232,6 +233,15 @@
                                         </ul>
                                     </li>
                                 @endcanany
+                                @canany(['administrar', 'personal'])
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link  btn btn-primary" href="{{ url('registros') }}">
+                                        <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                        <span class="hide-menu">VEA</span>
+                                    </a>
+                                  
+                                </li>
+                            @endcanany
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
@@ -295,6 +305,7 @@
 
                                         </a>
                                     </li>
+                            
                                 </ul>
                             </nav>
 
