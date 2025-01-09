@@ -192,7 +192,29 @@
                             </select>
                             
                             <label>Eje de Red y Microred</label>
-                            <input type="text" name="network" class="form-control" placeholder="Red/Microred">
+                           
+                            <select name="network" class="form-control">
+                                <option value="" disabled selected>Seleccione un eje micro red</option>
+                                <option value="EJE SAN GABRIEL DE VARADERO">EJE SAN GABRIEL DE VARADERO</option>
+                                <option value="EJE BALSAPUERTO">EJE BALSAPUERTO</option>
+                                <option value="EJE JEBEROS">EJE JEBEROS</option>
+                                <option value="EJE LAGUNAS">EJE LAGUNAS</option>
+                                <option value="EJE SANTA CRUZ">EJE SANTA CRUZ</option>
+                                <option value="EJE SHUCUSHYACU">EJE SHUCUSHYACU</option>
+                                <option value="EJE AGUAMIRO">EJE AGUAMIRO</option>
+                                <option value="EJE CARRETERA">EJE CARRETERA</option>
+                                <option value="EJE LOMA">EJE LOMA</option>
+                                <option value="EJE MUNICHIS">EJE MUNICHIS</option>
+                                <option value="EJE SANTA MARIA">EJE SANTA MARIA</option>
+                                <option value="EJE NATIVIDAD">EJE NATIVIDAD</option>
+                                <option value="EJE PAMPAHERMOSA">EJE PAMPAHERMOSA</option>
+                                <option value="SALUD MENTAL">SALUD MENTAL</option>
+                                <option value="EJE GRAU">EJE GRAU</option>
+                                <option value="HOGAR PROTEGIDO">HOGAR PROTEGIDO</option>
+                                <option value="HOSPITAL SANTA GEMA">HOSPITAL SANTA GEMA</option>
+                                <option value="EJE INDEPENDENCIA">EJE INDEPENDENCIA</option>
+                            </select>
+                            
                             <label>Distrtito</label>
                             <select name="district" class="form-control">
                                 <option value="" disabled selected>Seleccione un distrito</option>
