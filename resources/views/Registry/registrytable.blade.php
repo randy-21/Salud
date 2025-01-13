@@ -1,6 +1,5 @@
-<table id="file_export" class="text-center table table-hover table-bordered table-striped table-responsive">
+<table id="file_export" class="text-center   table-responsive">
     <thead>
-        <!-- start row -->
         <tr>
             <th><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""></th>
             <th>ID</th>
@@ -11,11 +10,10 @@
             <th>Apellido Materno</th>
             <th>Nombres</th>
             <th>Celular</th>
-            <th>Email</th>
             <th>IPRESS</th>
             <th>Eje de Red y Microred</th>
             <th>Edad</th>
-            <th>Distrtito</th>
+            <th>Distrito</th>
             <th>Procedencia</th>
             <th>Dirección</th>
             <th>FUR</th>
@@ -25,7 +23,6 @@
             <th>Color</th>
             <th>Observaciones</th>
         </tr>
-        <!-- end row -->
     </thead>
     <tbody>
         @foreach ($registries as $registry)
@@ -39,7 +36,7 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li>
                                 <a onclick="registryEdit('{{ $registry->id }}'); return false"
-                                     data-bs-toggle="modal" data-bs-target="#success-header-modal" fdprocessedid="cw61t3"
+                                     data-bs-toggle="modal" data-bs-target="#success-header-modal"
                                     class="dropdown-item d-flex align-items-center gap-3">
                                     <i class="fs-4 ti ti-edit"></i>Editar
                                 </a>
@@ -74,7 +71,6 @@
                 <td>{{ $registry->lastname }}</td>
                 <td>{{ $registry->names }}</td>
                 <td>{{ $registry->cellphone }}</td>
-                <td>{{ $registry->email }}</td>
                 <td>{{ $registry->ipress }}</td>
                 <td>{{ $registry->network }}</td>
                 <td>{{ $registry->age }}</td>

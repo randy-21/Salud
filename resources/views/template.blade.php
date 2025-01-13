@@ -234,9 +234,10 @@
                                         </ul>
                                     </li>
                                 @endcanany
+                                
                                 @canany(['administrar', 'personal'])
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link  btn btn-primary" href="{{ url('registros') }}">
+                                    <a class="sidebar-link  btn "style="backgroundcolor:#800080" href="{{ url('registros') }}">
                                         <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
                                         <span class="hide-menu">VEA</span>
                                     </a>

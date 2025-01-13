@@ -45,7 +45,6 @@ class RegistryController extends Controller
             $registry->lastname = $request->lastname;
             $registry->names = $request->names;
             $registry->cellphone = $request->cellphone;
-           // $registry->email = $request->email;
             $registry->ipress = $request->ipress;
             $registry->network = $request->network;
             $registry->district = $request->district;
@@ -55,14 +54,17 @@ class RegistryController extends Controller
             $registry->fur = $request->fur;
             $registry->fpp = $request->fpp;
             $registry->gestation_weeks = $request->gestation_weeks;
-            $registry->risk_factor = $request->risk_factor;
+            $registry->risk_factor =  $request->risk_factor;
             $registry->color = $request->color;
+            $registry->parity = $request->parity; // Nuevo campo
+            $registry->hemoglobine = $request->hemoglobine; // Nuevo campo
+            $registry->anemia = $request->anemia; // Nuevo campo
+            $registry->cpn = $request->cpn; // Nuevo campo
+            $registry->date_part = $request->date_part; // Nuevo campo
+            $registry->date_cite = $request->date_cite; // Nuevo campo
             $registry->observations = $request->observations;
 
-            // Guardar foto si se subió
-            if ($request->file('photo')) {
-                $registry->photo = fileStore($request->file('photo'), "imageregistries");
-            }
+        
 
             $registry->save();
         } catch (\Exception $e) {
@@ -104,7 +106,6 @@ class RegistryController extends Controller
             $registry->lastname = $request->lastname;
             $registry->names = $request->names;
             $registry->cellphone = $request->cellphone;
-          // $registry->email = $request->email;
             $registry->ipress = $request->ipress;
             $registry->network = $request->network;
             $registry->district = $request->district;
@@ -114,16 +115,15 @@ class RegistryController extends Controller
             $registry->fur = $request->fur;
             $registry->fpp = $request->fpp;
             $registry->gestation_weeks = $request->gestation_weeks;
-            $registry->risk_factor = $request->risk_factor;
+            $registry->risk_factor =  $request->risk_factor;
             $registry->color = $request->color;
+            $registry->parity = $request->parity; // Nuevo campo
+            $registry->hemoglobin = $request->hemoglobin; // Nuevo campo
+            $registry->anemia = $request->anemia; // Nuevo campo
+            $registry->cpn = $request->cpn; // Nuevo campo
+            $registry->date_parto = $request->date_parto; // Nuevo campo
+            $registry->date_cita = $request->date_cita; // Nuevo campo
             $registry->observations = $request->observations;
-
-            // Actualizar foto si se subió
-            if ($request->file('photo')) {
-                fileDestroy($registry->photo, "imageregistries");
-                $registry->photo = fileStore($request->file('photo'), "imageregistries");
-            }
-
             $registry->save();
         } catch (\Exception $e) {
             return "<div style='background-color:red'>ERROR</div>";

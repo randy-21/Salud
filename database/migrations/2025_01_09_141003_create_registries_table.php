@@ -28,7 +28,13 @@ return new class extends Migration
             $table->date("fpp")->nullable(); // Fecha probable de parto (FPP)
             $table->integer("gestation_weeks")->nullable(); // Edad gestacional
             $table->string("risk_factor")->nullable(); // Factor de riesgo
+            $table->string("hemoglobine")->nullable(); // Color
             $table->string("color")->nullable(); // Color
+            $table->string("cpn")->nullable(); // Color
+            $table->string("anemia")->nullable(); // 
+            $table->string("parity")->nullable(); //
+            $table->date("date_part")->nullable(); // 
+            $table->date("date_cite")->nullable(); // 
             $table->text("observations")->nullable(); // Observaciones
             $table->timestamps(); // Timestamps automáticos
         });
