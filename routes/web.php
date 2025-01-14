@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('UserRoleEdit', [App\Http\Controllers\UserRoleController::class, 'edit'])->middleware('permission:administrar|editar');
   Route::post('UserRoleUpdate', [App\Http\Controllers\UserRoleController::class, 'update'])->middleware('permission:administrar|actualizar');
 
-  Route::get('registros', [App\Http\Controllers\RegistryController::class, 'index'])->middleware('permission:administrar|registros');
+  Route::get('registros', [App\Http\Controllers\RegistryController::class, 'index'])->middleware('permission:administrar|obstetra');
   Route::post('registryStore', [App\Http\Controllers\RegistryController::class, 'store'])->middleware('permission:administrar|agregar');
   Route::post('registryUpdate', [App\Http\Controllers\RegistryController::class, 'update'])->middleware('permission:administrar|actualizar');
   Route::post('registryEdit', [App\Http\Controllers\RegistryController::class, 'edit'])->middleware('permission:administrar|editar');

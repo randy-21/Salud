@@ -396,7 +396,7 @@ function actualizarnetwork() {
     const nombreEstablecimientoSelect = document.getElementById("ipress");
 
     networkSelect.innerHTML = '<option value="">Seleccione un eje de Red</option>';
-    nombreEstablecimientoSelect.innerHTML = '<option value="">Seleccione un Nombre Establecimiento</option>';
+    nombreEstablecimientoSelect.innerHTML = '<option value="">Seleccione un IPRESS</option>';
 
     const districtSeleccionado = districtSelect.value;
     if (districtSeleccionado && data[districtSeleccionado]) {

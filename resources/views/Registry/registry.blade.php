@@ -47,26 +47,21 @@
                                         onchange="actualizarnetwork()"
                                         >
                                             <option value="" disabled selected>Seleccione un distrito</option>
-                                            <option value="YURIMAGUAS">YURIMAGUAS</option>
-                                            <option value="BALSAPUERTO">BALSAPUERTO</option>
+                                      
                                             <!-- Opciones reducidas para ejemplo -->
                                         </select>
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Eje de Red y Microred</label>
                                         <select name="network"id="network" class="form-control"onchange="actualizarNombreEstablecimiento();">
-                                            <option value="" disabled selected>Seleccione un eje micro red</option>
-                                            <option value="EJE SAN GABRIEL DE VARADERO">EJE SAN GABRIEL DE VARADERO</option>
-                                            <option value="EJE BALSAPUERTO">EJE BALSAPUERTO</option>
+                                          
                                             <!-- Opciones reducidas para ejemplo -->
                                         </select>
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>IPRESS</label>
                                         <select name="ipress"id="ipress" class="form-control">
-                                            <option value="" disabled selected>Seleccione un IPRESS</option>
-                                            <option value="C.S. I-3 SAN GABRIEL DE VARADERO">C.S. I-3 SAN GABRIEL DE VARADERO</option>
-                                            <option value="C.S. I-3 BALSAPUERTO">C.S. I-3 BALSAPUERTO</option>
+                                           
                                             <!-- Opciones reducidas para ejemplo -->
                                         </select>
                                     </div>

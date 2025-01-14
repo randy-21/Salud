@@ -235,9 +235,9 @@
                                     </li>
                                 @endcanany
                                 
-                                @canany(['administrar', 'personal'])
+                                @canany(['administrar', 'obstetra'])
                                 <li class="sidebar-item">
-                                    <a class="sidebar-link  btn "style="backgroundcolor:#800080" href="{{ url('registros') }}">
+                                    <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080" href="{{ url('registros') }}">
                                         <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
                                         <span class="hide-menu">VEA</span>
                                     </a>
