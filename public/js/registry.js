@@ -430,3 +430,36 @@ function actualizarNombreEstablecimiento() {
     }
 }
 
+function getWeekPregnat() {
+
+        // Obtener la fecha desde el elemento con el ID proporcionado
+        const dateElement = document.getElementById('fur');
+        const destiny_ = document.getElementById('gestation_weeks');
+        if (!dateElement) {
+            console.error(`No se encontró ningún elemento con el ID "${'fur'}".`);
+            return null;
+        }
+    
+        // Parsear la fecha desde el contenido del elemento
+       // const inputDate = new Date(dateElement.textContent.trim());
+        const inputDate = new Date(dateElement.value);
+        if (isNaN(inputDate)) {
+            console.error(`La fecha en el elemento "${'fur'}" no es válida.`);
+            return null;
+        }
+    
+        // Obtener la fecha actual
+        const currentDate = new Date();
+    
+        // Calcular la diferencia en milisegundos
+        const differenceInMs = currentDate - inputDate;
+    
+        // Convertir la diferencia a días
+        const differenceInDays = parseInt( Math.floor(differenceInMs / (1000 * 60 * 60 * 24)) /7);
+    
+        return destiny_.value=differenceInDays;
+    }
+    
+    // Ejemplo de uso
+ 
+    

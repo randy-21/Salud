@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>FUR (Fecha Última Regla)</label>
-                                        <input type="date" name="fur" class="form-control">
+                                        <input type="date" name="fur"id="fur" class="form-control"onchange="getWeekPregnat()">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>FPP (Fecha Probable de Parto)</label>
@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Edad Gestacional</label>
-                                        <input type="number" name="gestation_weeks" class="form-control" placeholder="Semanas">
+                                        <input type="number" name="gestation_weeks"id="gestation_weeks" class="form-control" placeholder="Semanas">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Factor de Riesgo</label>
@@ -297,7 +297,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <script defer>
         // Cargar distritos al iniciar la página
 document.addEventListener("DOMContentLoaded", cargardistricts);
     </script>
