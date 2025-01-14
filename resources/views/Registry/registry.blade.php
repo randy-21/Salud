@@ -267,7 +267,7 @@
                             <h4 class="card-title mb-0">Exportar</h4>
                         </div>
                         <div class="table-responsive" id="mycontent">
-                            @include('registry.registrytable') <!-- Actualiza con tu archivo de tabla -->
+                            @include('Registry.registrytable') <!-- Actualiza con tu archivo de tabla -->
                         </div>
                     </div>
                 </div>
