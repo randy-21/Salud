@@ -113,7 +113,7 @@
                                     <!-- ---------------------------------- -->
                                     <!-- Home .-->
                                     <!-- ---------------------------------- -->
-                                    <li class="nav-small-cap btn btn-danger w-100">
+                                    <li class="nav-small-cap  w-100">
                                         <span class="hide-menu">Indicadores de Salud</span>
                                     </li>
                                     <!-- ---------------------------------- -->
