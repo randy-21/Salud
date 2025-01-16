@@ -7,6 +7,7 @@ use App\Models\Registry; // Cambiado a Registry
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
+use Carbon\Carbon;
 
 class RegistryController extends Controller
 {
@@ -19,9 +20,13 @@ class RegistryController extends Controller
      * Listar registros
      */
     public function index()
-    {
-        $registries = Registry::orderBy('id', 'DESC')->get();
-        return view('Registry.registry', compact('registries'));
+    {// Fecha actual
+    $fechaActual = Carbon::now();
+         // Diferencia en días (valor absoluto)
+         $registries = Registry::orderBy('id', 'DESC')->get();
+      
+
+        return view('Registry.registry', compact('registries','fechaActual'));
     }
 
     /**

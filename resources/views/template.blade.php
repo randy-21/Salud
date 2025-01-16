@@ -2112,13 +2112,22 @@
     <script defer>
         function datatable_load() {
 
+ 
+
 
             // 
             //    File export                              //
             // 
             $("#file_export").DataTable({
                 dom: "Bfrtip",
-                buttons: ["copy", "csv", "excel", "pdf", "print"],
+                buttons: ["copy", "csv", 
+                {
+                extend: 'excel', // Exportar a Excel
+                title: 'Vigilancia Activa de Gestantes y Puerperas - Padron Semaforizado', // Nombre del archivo
+                text: 'Exportar a Excel' // Texto del botón
+            },
+                
+                "pdf", "print"],
             });
             $(
                 ".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel"

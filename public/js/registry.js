@@ -100,9 +100,9 @@ function registryEdit(id) {
             registry.names.value = response.data["names"];
             registry.cellphone.value = response.data["cellphone"];
             registry.district.value = response.data["district"];
+            registry.network.value = response.data["network"];
           
             registry.ipress.value = response.data["ipress"];
-            registry.network.value = response.data["network"];
             registry.age.value = response.data["age"];
             registry.provenance.value = response.data["provenance"];
             registry.address.value = response.data["address"];
@@ -115,7 +115,7 @@ function registryEdit(id) {
             registry.date_part.value = response.data["date_part"];
             registry.anemia.value = response.data["anemia"];
             registry.parity.value = response.data["parity"];
-            registry.hemoglobin.value = response.data["hemoglobin"];
+            registry.hemoglobine.value = response.data["hemoglobine"];
             registry.cpn.value = response.data["cpn"];
             registry.observations.value = response.data["observations"];
 
@@ -241,7 +241,7 @@ const data = {
             "P.S I-1 SAN JUANN DE PALOMETAYACU"
         ],
         "EJE BALSAPUERTO": [
-            "C.S.  I-3 BALSAPUERTO",
+            "C.S. I-3 BALSAPUERTO",
             "P.S. I-1 NUEVA ESPERANZA DE BALSAPUERTO"
         ]
     },
