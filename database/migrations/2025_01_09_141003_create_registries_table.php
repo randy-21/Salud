@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("ipress")->nullable(); // IPRESS
             $table->string("network")->nullable(); // Eje de red y microred
             $table->integer("age")->nullable(); // Edad
-            $table->string("provenance")->nullable(); // Procedencia
+            $table->string("provenance")->nullable(); // Comunidad/Barrio
             $table->string("address")->nullable(); // Dirección
             $table->string("cellphone", 20)->nullable(); // Celular
             $table->date("fur")->nullable(); // Fecha de última regla (FUR)

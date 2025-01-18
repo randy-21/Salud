@@ -220,8 +220,8 @@
                                         <input type="number" name="age" class="form-control" placeholder="Edad">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                                        <label>Procedencia</label>
-                                        <input type="text" name="provenance" class="form-control" placeholder="Procedencia">
+                                        <label>Comunidad/Barrio</label>
+                                        <input type="text" name="provenance" class="form-control" placeholder="Comunidad/Barrio">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Dirección</label>
@@ -360,7 +360,7 @@
                                     </div>
                                   
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                                        <label>CPN</label>
+                                        <label>Fecha 1 CPN</label>
                                         <input type="text" name="cpn" class="form-control" placeholder="CPN">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
