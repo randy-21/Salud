@@ -59,6 +59,14 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('RolePermissionUpdate', [App\Http\Controllers\RolePermissionController::class, 'update'])->middleware('permission:administrar|actualizar');
   Route::post('RolePermissionEdit', [App\Http\Controllers\RolePermissionController::class, 'edit'])->middleware('permission:administrar|editar');
 
+
+  Route::resource("factor_riesgo", App\Http\Controllers\RiskFactorController::class);
+  Route::post('riskFactorStore',[App\Http\Controllers\RiskFactorController::class, 'store']);
+  Route::post('riskFactorEdit',[App\Http\Controllers\RiskFactorController::class, 'edit']);
+  Route::post('riskFactorUpdate',[App\Http\Controllers\RiskFactorController::class, 'update']);
+  Route::post('riskFactorDestroy',[App\Http\Controllers\RiskFactorController::class, 'destroy']);
+  Route::post('riskFactorShow',[App\Http\Controllers\RiskFactorController::class, 'show']);
+
  });
 
 

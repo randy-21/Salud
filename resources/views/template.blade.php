@@ -27,6 +27,7 @@
     <script src="{{ asset('js/function.js') }}"></script>
     <script src="{{ asset('js/role.js') }}"></script>
     <script src="{{ asset('js/registry.js') }}"></script>
+    <script src="{{ asset('js/risk_factor.js') }}"></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
