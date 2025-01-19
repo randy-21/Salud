@@ -220,8 +220,8 @@
                                         <input type="number" name="age" class="form-control" placeholder="Edad">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                                        <label>Procedencia</label>
-                                        <input type="text" name="provenance" class="form-control" placeholder="Procedencia">
+                                        <label>Comunidad/Barrio</label>
+                                        <input type="text" name="provenance" class="form-control" placeholder="Comunidad/Barrio">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Dirección</label>
@@ -360,8 +360,8 @@
                                     </div>
                                   
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                                        <label>CPN</label>
-                                        <input type="text" name="cpn" class="form-control" placeholder="CPN">
+                                        <label>Fecha 1 CNP</label>
+                                        <input type="text" name="cpn" class="form-control" placeholder="CNP">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Fecha de Parto</label>
@@ -377,14 +377,15 @@
                                     </div>
                                 </div>
 
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <input type="button" value="Nuevo" class="btn btn-primary"
+                                onclick="New();$('#registry')[0].reset();" name="new">
                         @canany(['administrar', 'agregar'])
-                            <button type="button" class="btn bg-success-subtle text-success" onclick="registryStore()">
+                            <button type="button" class="btn bg-success-subtle text-success" onclick="registryStore()"id="create">
                                 Guardar
                             </button>
                         @endcanany
                         @canany(['administrar', 'actualizar'])
-                            <button type="button" class="btn bg-danger-subtle text-danger" onclick="registryUpdate()">
+                            <button type="button" class="btn bg-danger-subtle text-danger" onclick="registryUpdate()" id="update">
                                 Modificar
                             </button>
                         @endcanany
