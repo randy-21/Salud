@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string("risk_factor")->nullable(); // Factor de riesgo
             $table->string("hemoglobine")->nullable(); // Color
             $table->string("color")->nullable(); // Color
-            $table->string("cpn")->nullable(); // Color
+            $table->date("cpn")->nullable(); // Color
             $table->string("anemia")->nullable(); // 
             $table->string("parity")->nullable(); //
             $table->date("date_part")->nullable(); // 

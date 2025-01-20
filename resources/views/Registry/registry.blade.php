@@ -289,7 +289,7 @@
                                   
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Fecha 1 CNP</label>
-                                        <input type="text" name="cpn" class="form-control" placeholder="CNP">
+                                        <input type="date" name="cpn" class="form-control" placeholder="CNP">
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Fecha de Parto</label>
