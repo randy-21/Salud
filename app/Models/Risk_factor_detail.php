@@ -9,4 +9,5 @@ class Risk_factor_detail extends Model
 {
     /** @use HasFactory<\Database\Factories\RiskFactorDetailFactory> */
     use HasFactory;
+    
 }

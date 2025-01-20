@@ -33,6 +33,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+
+<!-- JavaScript de Select2 -->
+ 
 </head>
 <style>
     p {
@@ -241,6 +245,13 @@
                                     <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080" href="{{ url('registros') }}">
                                         <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
                                         <span class="hide-menu">VEA</span>
+                                    </a>
+                                  
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080" href="{{ url('factor_riesgo') }}">
+                                        <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                        <span class="hide-menu">Factor Riesgo</span>
                                     </a>
                                   
                                 </li>
@@ -2379,7 +2390,16 @@
 
             document.getElementsByClassName('note-editable')[0].innerHTML = "";
         }
+        
     </script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+    <script defer>
+        $(function() {
+            $('.select2').select2()
+        });
+    </script>
+    
     {{-- <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script> --}}
 
     {{-- <script defer>

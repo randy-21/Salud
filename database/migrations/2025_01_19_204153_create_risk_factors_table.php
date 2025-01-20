@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('risk_factors', function (Blueprint $table) {
             $table->id();
             $table->string("description");
-            $table->string("detail");
+            $table->string("detail")->nullable();
             $table->timestamps();
         });
     }

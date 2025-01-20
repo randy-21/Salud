@@ -9,4 +9,7 @@ class Risk_factor extends Model
 {
     /** @use HasFactory<\Database\Factories\RiskFactorFactory> */
     use HasFactory;
+    protected $fillable = [
+        'registry_id','risk_factor_id'
+    ];
 }

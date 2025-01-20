@@ -14,8 +14,8 @@ class RiskFactorController extends Controller
     public function index()
     {
         //
-        $Risk_factor = Risk_factor::orderBy('id','DESC')->get();
-        return view("Risk_factor", compact("Risk_factor"));
+        $risk_factor = Risk_factor::orderBy('id','DESC')->get();
+        return view("Risk_factor.risk_factor", compact("risk_factor"));
     }
 
     /**
@@ -26,8 +26,8 @@ class RiskFactorController extends Controller
     public function create()
     {
         //
-        $Risk_factor = Risk_factor::orderBy('id','DESC')->get();
-        return view("Risk_factortable", compact("Risk_factor"));
+        $risk_factor = Risk_factor::orderBy('id','DESC')->get();
+        return view("Risk_factor.risk_factortable", compact("risk_factor"));
     }
 
     /**
@@ -54,8 +54,8 @@ class RiskFactorController extends Controller
     public function show(Request $request)
     {
         $show="%".$request["show"]."%";
-        $Risk_factor=Risk_factor::where('description',"like",$show)->all();
-        return view('Risk_factortable',compact('Risk_factor'));
+        $risk_factor=Risk_factor::where('description',"like",$show)->all();
+        return view('risk_factor.risk_factortable',compact('risk_factor'));
     }
 
     /**

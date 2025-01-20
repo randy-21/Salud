@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('registries', function (Blueprint $table) {
             $table->id(); // ID único
-            $table->string("dni")->unique(); // DNI
-            $table->string("firstname"); // Apellido paterno
-            $table->string("lastname"); // Apellido materno
-            $table->string("names"); // Nombres
+            $table->string("dni")->nullable(); // DNI
+            $table->string("firstname")->nullable(); // Apellido paterno
+            $table->string("lastname")->nullable(); // Apellido materno
+            $table->string("names")->nullable(); // Nombres
             $table->string("district")->nullable(); // Distrito
             $table->string("ipress")->nullable(); // IPRESS
             $table->string("network")->nullable(); // Eje de red y microred

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Risk_factor_detail;
 use Illuminate\Http\Request;
 use App\Models\Registry; // Cambiado a Registry
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use App\Models\Risk_factor;
 
 class RegistryController extends Controller
 {
@@ -20,13 +22,15 @@ class RegistryController extends Controller
      * Listar registros
      */
     public function index()
-    {// Fecha actual
-    $fechaActual = Carbon::now();
-         // Diferencia en días (valor absoluto)
-         $registries = Registry::orderBy('id', 'DESC')->get();
-      
+    { // Fecha actual
+        $fechaActual = Carbon::now();
+        // Diferencia en días (valor absoluto)
+        $registries = Registry::orderBy('id', 'DESC')->get();
 
-        return view('Registry.registry', compact('registries','fechaActual'));
+        $risk_factor = Risk_factor::all();
+
+
+        return view('Registry.registry', compact('registries', 'fechaActual', 'risk_factor'));
     }
 
     /**
@@ -34,8 +38,10 @@ class RegistryController extends Controller
      */
     public function create()
     {
+        $fechaActual = Carbon::now();
+
         $registries = Registry::orderBy('id', 'DESC')->get();
-        return view('Registry.registrytable', compact('registries'));
+        return view('Registry.registrytable', compact('registries', 'fechaActual'));
     }
 
     /**
@@ -59,7 +65,7 @@ class RegistryController extends Controller
             $registry->fur = $request->fur;
             $registry->fpp = $request->fpp;
             $registry->gestation_weeks = $request->gestation_weeks;
-            $registry->risk_factor =  $request->risk_factor;
+
             $registry->color = $request->color;
             $registry->parity = $request->parity; // Nuevo campo
             $registry->hemoglobine = $request->hemoglobine; // Nuevo campo
@@ -69,11 +75,22 @@ class RegistryController extends Controller
             $registry->date_cite = $request->date_cite; // Nuevo campo
             $registry->observations = $request->observations;
 
-        
+
 
             $registry->save();
+            foreach ($request->risk_factor as $item) {
+
+                $item_ = new Risk_factor_detail;
+                $item_->registry_id = $registry->id;
+                $risk = explode(" - ", $item);
+                $item_->risk_factor_id = $risk[0];
+
+
+
+                $item_->save();
+            }
         } catch (\Exception $e) {
-            return "<div style='background-color:red'>ERROR</div>";
+            return "Verifique los datos.";
         }
 
         return $this->create();
@@ -95,6 +112,7 @@ class RegistryController extends Controller
     public function edit(Request $request)
     {
         $registry = Registry::find($request["id"]);
+        $registry->risk_factors_ = $registry->risk_factors;
         return $registry;
     }
 
@@ -105,6 +123,7 @@ class RegistryController extends Controller
     {
         try {
             $registry = Registry::find($request->id);
+
 
             $registry->dni = $request->dni;
             $registry->firstname = $request->firstname;
@@ -120,18 +139,33 @@ class RegistryController extends Controller
             $registry->fur = $request->fur;
             $registry->fpp = $request->fpp;
             $registry->gestation_weeks = $request->gestation_weeks;
-            $registry->risk_factor =  $request->risk_factor;
+
             $registry->color = $request->color;
             $registry->parity = $request->parity; // Nuevo campo
-            $registry->hemoglobin = $request->hemoglobin; // Nuevo campo
+            $registry->hemoglobine = $request->hemoglobine; // Nuevo campo
             $registry->anemia = $request->anemia; // Nuevo campo
             $registry->cpn = $request->cpn; // Nuevo campo
-            $registry->date_parto = $request->date_parto; // Nuevo campo
-            $registry->date_cita = $request->date_cita; // Nuevo campo
+            $registry->date_part = $request->date_part; // Nuevo campo
+            $registry->date_cite = $request->date_cite; // Nuevo campo
             $registry->observations = $request->observations;
+
+
+
             $registry->save();
+            Risk_factor_detail::where('registry_id', $request["id"])->delete();
+            foreach ($request->risk_factor as $item) {
+
+                $item_ = new Risk_factor_detail;
+                $item_->registry_id = $registry->id;
+                $risk = explode(" - ", $item);
+                $item_->risk_factor_id = $risk[0];
+
+
+
+                $item_->save();
+            }
         } catch (\Exception $e) {
-            return "<div style='background-color:red'>ERROR</div>";
+            return "Verifique los datos.";
         }
 
         return $this->create();
@@ -142,13 +176,13 @@ class RegistryController extends Controller
      */
     public function destroy(Request $request)
     {
-        try {
-            $registry = Registry::find($request["id"]);
-          //  fileDestroy($registry->photo, "imageregistries");
-            $registry->delete();
-        } catch (\Exception $e) {
-            return "<div style='background-color:red'>ERROR</div>";
-        }
+
+        Risk_factor_detail::where('registry_id', $request["id"])->delete();
+
+        $registry = Registry::find($request["id"]);
+      
+        $registry->delete();
+
 
         return $this->create();
     }
@@ -156,5 +190,4 @@ class RegistryController extends Controller
     /**
      * Importar datos desde Excel
      */
-
 }

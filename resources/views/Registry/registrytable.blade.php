@@ -88,10 +88,15 @@
                     <td>{{ $registry->fur }}</td>
                     <td>{{ $registry->fpp }}</td>
                     <td>{{ $registry->gestation_weeks }}</td>
-                    @php
-                        $riks_factor = explode(' - ', $registry->risk_factor);
-                    @endphp
-                    <td>{{ $riks_factor[1] }}</td>
+                    
+                    <td>
+                        @foreach ($registry->risk_factors as $item)
+                        @php
+                       $separate= explode(" - ",$item->description);
+                        @endphp
+                        {{$separate[1]  }},
+                        @endforeach
+                        </td>
                     <td>{{ $registry->color }}</td>
                     <td>{{ $registry->parity }}</td>
                     <td>{{ $registry->hemoglobine }}</td>

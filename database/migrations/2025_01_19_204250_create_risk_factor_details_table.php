@@ -14,11 +14,22 @@ return new class extends Migration
         Schema::create('risk_factor_details', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('risk_factor_id')->unsigned();
-            $table->foreign('risk_factor_id')->references('id')->on('risk_factors');
+            $table->foreign('risk_factor_id')
+                  ->references('id')
+                  ->on('risk_factors')
+                  ->onDelete('cascade') // Elimina en cascada
+                  ->onUpdate('cascade'); // Actualiza en cascada
+        
             $table->bigInteger('registry_id')->unsigned();
-            $table->foreign('registry_id')->references('id')->on('registries');
+            $table->foreign('registry_id')
+                  ->references('id')
+                  ->on('registries')
+                  ->onDelete('cascade') // Elimina en cascada
+                  ->onUpdate('cascade'); // Actualiza en cascada
+        
             $table->timestamps();
         });
+        
     }
 
     /**
