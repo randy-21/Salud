@@ -24,7 +24,7 @@
                 <th>Paridad</th>
                 <th>Hemoglogina</th>
                 <th>Anemia</th>
-                <th>Fecha 1 CPN</th>
+                <th>Fecha 1 CNP</th>
                 <th>F Parto</th>
                 <th>F Cita</th>
                 <th>Observaciones</th>

@@ -360,8 +360,13 @@
                                     </div>
                                   
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+<<<<<<< HEAD
                                         <label>Fecha 1 CPN</label>
                                         <input type="text" name="cpn" class="form-control" placeholder="CPN">
+=======
+                                        <label>Fecha 1 CNP</label>
+                                        <input type="text" name="cpn" class="form-control" placeholder="CNP">
+>>>>>>> 7ee06873afb33fd036de486ac2521208de6d5bed
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Fecha de Parto</label>
@@ -377,14 +382,15 @@
                                     </div>
                                 </div>
 
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <input type="button" value="Nuevo" class="btn btn-primary"
+                                onclick="New();$('#registry')[0].reset();" name="new">
                         @canany(['administrar', 'agregar'])
-                            <button type="button" class="btn bg-success-subtle text-success" onclick="registryStore()">
+                            <button type="button" class="btn bg-success-subtle text-success" onclick="registryStore()"id="create">
                                 Guardar
                             </button>
                         @endcanany
                         @canany(['administrar', 'actualizar'])
-                            <button type="button" class="btn bg-danger-subtle text-danger" onclick="registryUpdate()">
+                            <button type="button" class="btn bg-danger-subtle text-danger" onclick="registryUpdate()" id="update">
                                 Modificar
                             </button>
                         @endcanany
