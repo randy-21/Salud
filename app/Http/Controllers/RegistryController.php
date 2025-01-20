@@ -121,7 +121,9 @@ class RegistryController extends Controller
      */
     public function update(Request $request)
     {
-        try {
+        
+     
+            Risk_factor_detail::where('registry_id', "=",$request["id"])->delete();
             $registry = Registry::find($request->id);
 
 
@@ -149,14 +151,12 @@ class RegistryController extends Controller
             $registry->date_cite = $request->date_cite; // Nuevo campo
             $registry->observations = $request->observations;
 
-
-
             $registry->save();
-            Risk_factor_detail::where('registry_id', $request["id"])->delete();
+          
             foreach ($request->risk_factor as $item) {
 
                 $item_ = new Risk_factor_detail;
-                $item_->registry_id = $registry->id;
+                $item_->registry_id = $request->id;
                 $risk = explode(" - ", $item);
                 $item_->risk_factor_id = $risk[0];
 
@@ -164,9 +164,7 @@ class RegistryController extends Controller
 
                 $item_->save();
             }
-        } catch (\Exception $e) {
-            return "Verifique los datos.";
-        }
+      
 
         return $this->create();
     }

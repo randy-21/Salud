@@ -106,12 +106,12 @@ function registryEdit(id) {
       registry.fpp.value = response.data["fpp"];
       registry.gestation_weeks.value = response.data["gestation_weeks"];
 
-      // Suponiendo que response.data["risk_factor"] es un array de valores seleccionados
-      // Obtener el select
+  
    
        let risk =response.data["risk_factors"];
-    //   console.log(risk);
-      // Cargar nuevas opciones
+  
+     
+       
         let risk__ =[];
       risk.forEach(function(factor) {
          risk__.push(factor.id+" - "+factor.description);

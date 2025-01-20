@@ -41,7 +41,7 @@
                         <div class="">
                             <form action="" method="post" role="form" id="registry" name="registry" enctype="multipart/form-data">
                                 <div class="row">
-                                    @csrf
+                                   <input type="hidden" name="id"  >
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Distrito</label>
                                         <select name="district"id="district" class="form-control"
