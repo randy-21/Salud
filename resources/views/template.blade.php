@@ -248,6 +248,8 @@
                                     </a>
                                   
                                 </li>
+                                @endcanany
+                                @canany(['administrar'])
                                 <li class="sidebar-item">
                                     <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080" href="{{ url('factor_riesgo') }}">
                                         <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
