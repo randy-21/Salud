@@ -168,7 +168,12 @@
                                                         <span class="icon-small"></span>SEGUIMIENTO
                                                     </a>
                                                 </li>
-
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link"
+                                                        target="_blank"href="https://diredsaa.gob.pe/promsa/">
+                                                        <span class="icon-small"></span>PROMSA
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
                                     @endcanany
