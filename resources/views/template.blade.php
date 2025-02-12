@@ -168,12 +168,7 @@
                                                         <span class="icon-small"></span>SEGUIMIENTO
                                                     </a>
                                                 </li>
-                                                <li class="sidebar-item">
-                                                    <a class="sidebar-link"
-                                                        target="_blank"href="https://diredsaa.gob.pe/promsa/">
-                                                        <span class="icon-small"></span>PROMSA
-                                                    </a>
-                                                </li>
+                                                
                                             </ul>
                                         </li>
                                     @endcanany
@@ -188,6 +183,13 @@
                                                 <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
                                                 <span class="hide-menu">Seguimiento</span>
                                             </a>
+                                  
+                                                <a class="sidebar-link  btn btn-primary"
+                                                    target="_blank"href="https://diredsaa.gob.pe/promsa/">
+                                                    <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">PROMSA</span>
+                                                </a>
+                                          
                                             <ul aria-expanded="false" class="collapse first-level">
 
                                                 <li class="sidebar-item">
