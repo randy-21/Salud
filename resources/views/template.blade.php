@@ -35,8 +35,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 
-<!-- JavaScript de Select2 -->
- 
+    <!-- JavaScript de Select2 -->
+
 </head>
 <style>
     p {
@@ -168,7 +168,7 @@
                                                         <span class="icon-small"></span>SEGUIMIENTO
                                                     </a>
                                                 </li>
-                                                
+
                                             </ul>
                                         </li>
                                     @endcanany
@@ -183,13 +183,9 @@
                                                 <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
                                                 <span class="hide-menu">Seguimiento</span>
                                             </a>
-                                  
-                                                <a class="sidebar-link  btn btn-primary"
-                                                    target="_blank"href="https://diredsaa.gob.pe/promsa/">
-                                                    <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                                <span class="hide-menu">PROMSA</span>
-                                                </a>
-                                          
+
+
+
                                             <ul aria-expanded="false" class="collapse first-level">
 
                                                 <li class="sidebar-item">
@@ -220,6 +216,17 @@
                                             </ul>
                                         </li>
                                     @endcanany
+                                    @canany(['administrar', 'invitado'])
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link  btn btn-primary"
+                                        target="_blank"href="https://diredsaa.gob.pe/promsa/">
+                                        <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                        <span class="hide-menu">PROMSA</span>
+                                    </a>
+
+                                    </li>
+                                     
+                                    @endcanany
                                     @canany(['administrar', 'personal'])
                                         <li class="sidebar-item">
                                             <a class="sidebar-link has-arrow btn btn-primary" href="javascript:void(0)"
@@ -242,29 +249,31 @@
                                                     </a>
                                                 </li>
 
-                                          
-                                        </ul>
-                                    </li>
-                                @endcanany
-                                
-                                @canany(['administrar', 'obstetra'])
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080" href="{{ url('registros') }}">
-                                        <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                        <span class="hide-menu">VEA</span>
-                                    </a>
-                                  
-                                </li>
-                                @endcanany
-                                @canany(['administrar'])
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080" href="{{ url('factor_riesgo') }}">
-                                        <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
-                                        <span class="hide-menu">Factor Riesgo</span>
-                                    </a>
-                                  
-                                </li>
-                            @endcanany
+
+                                            </ul>
+                                        </li>
+                                    @endcanany
+
+                                    @canany(['administrar', 'obstetra'])
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080"
+                                                href="{{ url('registros') }}">
+                                                <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">VEA</span>
+                                            </a>
+
+                                        </li>
+                                    @endcanany
+                                    @canany(['administrar'])
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link  btn btn-danger"style="backgroundcolor:#800080"
+                                                href="{{ url('factor_riesgo') }}">
+                                                <iconify-icon icon="solar:shield-user-line-duotone"></iconify-icon>
+                                                <span class="hide-menu">Factor Riesgo</span>
+                                            </a>
+
+                                        </li>
+                                    @endcanany
                                     <li>
                                         <span class="sidebar-divider"></span>
                                     </li>
@@ -328,7 +337,7 @@
 
                                         </a>
                                     </li>
-                            
+
                                 </ul>
                             </nav>
 
@@ -475,8 +484,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="message-body">
-                                                    <a href="perfil"
-                                                        class="p-2 dropdown-item h6 rounded-1">
+                                                    <a href="perfil" class="p-2 dropdown-item h6 rounded-1">
                                                         Mi Perfil
                                                     </a>
 
@@ -1803,10 +1811,10 @@
                         <!-- Sección de contacto -->
                         <div class="col-md-4">
                             <h4>SOPORTES / CONSULTAS :</h4>
-                            <p> / 
+                            <p> /
                                 <i class="bi bi-telephone-fill"></i> WHATSAPP 970973801<br>
                                 <i class="bi bi-envelope-fill"></i> randy21_10@hotmail.com<br>
-                                <i class="bi bi-geo-alt-fill"></i> RANDY JOE MENDOZA SILVA 
+                                <i class="bi bi-geo-alt-fill"></i> RANDY JOE MENDOZA SILVA
                             </p>
                         </div>
                     </div>
@@ -1816,14 +1824,14 @@
                 </div>
             </footer>
         </div>
-    
+
         <button
             class="btn btn-danger p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn"
             type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample">
             <i class="icon ti ti-settings fs-7"></i>
         </button>
-     
+
         <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
@@ -2133,7 +2141,7 @@
     <script defer>
         function datatable_load() {
 
- 
+
 
 
             // 
@@ -2141,14 +2149,15 @@
             // 
             $("#file_export").DataTable({
                 dom: "Bfrtip",
-                buttons: ["copy", "csv", 
-                {
-                extend: 'excel', // Exportar a Excel
-                title: 'Vigilancia Activa de Gestantes y Puerperas - Padron Semaforizado', // Nombre del archivo
-                text: 'Exportar a Excel' // Texto del botón
-            },
-                
-                "pdf", "print"],
+                buttons: ["copy", "csv",
+                    {
+                        extend: 'excel', // Exportar a Excel
+                        title: 'Vigilancia Activa de Gestantes y Puerperas - Padron Semaforizado', // Nombre del archivo
+                        text: 'Exportar a Excel' // Texto del botón
+                    },
+
+                    "pdf", "print"
+                ],
             });
             $(
                 ".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel"
@@ -2399,7 +2408,6 @@
 
             document.getElementsByClassName('note-editable')[0].innerHTML = "";
         }
-        
     </script>
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
@@ -2408,7 +2416,7 @@
             $('.select2').select2()
         });
     </script>
-    
+
     {{-- <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script> --}}
 
     {{-- <script defer>
