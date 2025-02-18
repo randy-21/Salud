@@ -97,6 +97,7 @@ function registryEdit(id) {
       registry.cellphone.value = response.data["cellphone"];
       registry.district.value = response.data["district"];
       registry.network.value = response.data["network"];
+      registry.user_dni.value = response.data.user["dni"];
 
       registry.ipress.value = response.data["ipress"];
       registry.age.value = response.data["age"];

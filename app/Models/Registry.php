@@ -14,4 +14,8 @@ class Registry extends Model
         return $this->belongsToMany('App\Models\Risk_factor', 'risk_factor_details','registry_id');
         
     }
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'created_by','id');
+        
+    }
 }

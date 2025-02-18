@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use App\Models\Risk_factor;
-
+use App\Models\User;
 class RegistryController extends Controller
 {
     public function __construct()
@@ -74,6 +74,7 @@ class RegistryController extends Controller
             $registry->date_part = $request->date_part; // Nuevo campo
             $registry->date_cite = $request->date_cite; // Nuevo campo
             $registry->observations = $request->observations;
+            $registry->created_by = Auth::user()->id;
 
 
 
@@ -111,7 +112,7 @@ class RegistryController extends Controller
      */
     public function edit(Request $request)
     {
-        $registry = Registry::find($request["id"]);
+        $registry = Registry::with('user')->find($request["id"]);
         $registry->risk_factors_ = $registry->risk_factors;
         return $registry;
     }
@@ -150,7 +151,14 @@ class RegistryController extends Controller
             $registry->date_part = $request->date_part; // Nuevo campo
             $registry->date_cite = $request->date_cite; // Nuevo campo
             $registry->observations = $request->observations;
+           $user=  User::where("dni","=",$request->user_dni)->first();
+           if($user){
+            $registry->user_dni = $user->id;
+           }
+           else{
 
+               $registry->created_by = Auth::user()->id;
+           }
             $registry->save();
           
             foreach ($request->risk_factor as $item) {

@@ -29,7 +29,7 @@
                 <th>F Cita</th>
                 <th>Observaciones</th>
                 <th><i class="ti ti-brand-whatsapp fs-7" style="color:green;"></i></th>
-
+                <th>Usuario DNI</th>
             </tr>
         </thead>
         <tbody>
@@ -113,6 +113,7 @@
                             <i class="ti ti-brand-whatsapp fs-7" style="color:green;"></i>
                         </a>
                     </td>
+                    <td>{{ $registry->user->dni ? :'No disponible' }}</td>
                 </tr>
             @endforeach
         </tbody>

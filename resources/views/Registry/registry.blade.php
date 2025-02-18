@@ -303,6 +303,10 @@
                                         <label>Observaciones</label>
                                         <textarea name="observations" class="form-control" rows="3" placeholder="Observaciones"></textarea>
                                     </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <label>DNI USUARIO</label>
+                                        <input name="user_dni" class="form-control" rows="3" placeholder="DNI USUARIO">
+                                    </div>
                                 </div>
 
                                 <input type="button" value="Nuevo" class="btn btn-primary"
