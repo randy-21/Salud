@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('userStore', [App\Http\Controllers\UserController::class, 'store'])->middleware('permission:administrar|agregar');
   Route::post('userUpdate', [App\Http\Controllers\UserController::class, 'update'])->middleware('permission:administrar|actualizar');
   Route::post('userEdit', [App\Http\Controllers\UserController::class, 'edit'])->middleware('permission:administrar|editar');
-  Route::get('userDestroy/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->middleware('permission:administrar|delete');
+  Route::get('userDestroy/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->middleware('permission:administrar|eliminar');
   Route::post('userUpdateProfile', [App\Http\Controllers\UserController::class, 'updateProfile']);
   
   Route::post('UserRoleEdit', [App\Http\Controllers\UserRoleController::class, 'edit'])->middleware('permission:administrar|editar');
@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('registryStore', [App\Http\Controllers\RegistryController::class, 'store'])->middleware('permission:administrar|agregar');
   Route::post('registryUpdate', [App\Http\Controllers\RegistryController::class, 'update'])->middleware('permission:administrar|actualizar');
   Route::post('registryEdit', [App\Http\Controllers\RegistryController::class, 'edit'])->middleware('permission:administrar|editar');
-  Route::get('registryDestroy/{id}', [App\Http\Controllers\RegistryController::class, 'destroy'])->middleware('permission:administrar|delete');
+  Route::get('registryDestroy/{id}', [App\Http\Controllers\RegistryController::class, 'destroy'])->middleware('permission:administrar|eliminar');
 
 
 
