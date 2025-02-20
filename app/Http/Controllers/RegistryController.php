@@ -122,59 +122,61 @@ class RegistryController extends Controller
      */
     public function update(Request $request)
     {
-        
-     
-            Risk_factor_detail::where('registry_id', "=",$request["id"])->delete();
-            $registry = Registry::find($request->id);
 
 
-            $registry->dni = $request->dni;
-            $registry->firstname = $request->firstname;
-            $registry->lastname = $request->lastname;
-            $registry->names = $request->names;
-            $registry->cellphone = $request->cellphone;
-            $registry->ipress = $request->ipress;
-            $registry->network = $request->network;
-            $registry->district = $request->district;
-            $registry->age = $request->age;
-            $registry->provenance = $request->provenance;
-            $registry->address = $request->address;
-            $registry->fur = $request->fur;
-            $registry->fpp = $request->fpp;
-            $registry->gestation_weeks = $request->gestation_weeks;
+            try {
+                $registry = Registry::findOrFail($request->id);
 
-            $registry->color = $request->color;
-            $registry->parity = $request->parity; // Nuevo campo
-            $registry->hemoglobine = $request->hemoglobine; // Nuevo campo
-            $registry->anemia = $request->anemia; // Nuevo campo
-            $registry->cpn = $request->cpn; // Nuevo campo
-            $registry->date_part = $request->date_part; // Nuevo campo
-            $registry->date_cite = $request->date_cite; // Nuevo campo
-            $registry->observations = $request->observations;
-           $user=  User::where("dni","=",$request->user_dni)->first();
-           if($user){
-            $registry->user_dni = $user->id;
-           }
-           else{
+                // Actualizar los datos del registro
+                $registry->dni = $request->dni;
+                $registry->firstname = $request->firstname;
+                $registry->lastname = $request->lastname;
+                $registry->names = $request->names;
+                $registry->cellphone = $request->cellphone;
+                $registry->ipress = $request->ipress;
+                $registry->network = $request->network;
+                $registry->district = $request->district;
+                $registry->age = $request->age;
+                $registry->provenance = $request->provenance;
+                $registry->address = $request->address;
+                $registry->fur = $request->fur;
+                $registry->fpp = $request->fpp;
+                $registry->gestation_weeks = $request->gestation_weeks;
+                $registry->color = $request->color;
+                $registry->parity = $request->parity;
+                $registry->hemoglobine = $request->hemoglobine;
+                $registry->anemia = $request->anemia;
+                $registry->cpn = $request->cpn;
+                $registry->date_part = $request->date_part;
+                $registry->date_cite = $request->date_cite;
+                $registry->observations = $request->observations;
 
-               $registry->created_by = Auth::user()->id;
-           }
-            $registry->save();
-          
-            foreach ($request->risk_factor as $item) {
+                // Buscar usuario por DNI
+                $user = User::where("dni", $request->user_dni)->first();
+                $registry->created_by = $user ? $user->id : Auth::id();
 
-                $item_ = new Risk_factor_detail;
-                $item_->registry_id = $request->id;
-                $risk = explode(" - ", $item);
-                $item_->risk_factor_id = $risk[0];
+                // Guardar cambios en Registry
+                $registry->save();
 
+                // Sincronizar factores de riesgo (eliminará los que no están en el request y agregará los nuevos)
+                if ($request->has('risk_factor')) {
+                    // Convertir los valores si vienen en formato "id - nombre"
+                    $riskFactorIds = collect($request->risk_factor)->map(function ($item) {
+                        return explode(" - ", $item)[0]; // Extraer solo el ID
+                    })->toArray();
 
+                    $registry->risk_factors()->sync($riskFactorIds);
+                }
 
-                $item_->save();
+                return $this->create();
+            } catch (\Exception $e) {
+                return response()->json([
+                    'message' => 'Error al actualizar el registro',
+                    'error' => $e->getMessage()
+                ], 500);
             }
-      
 
-        return $this->create();
+
     }
 
     /**
@@ -186,7 +188,7 @@ class RegistryController extends Controller
         Risk_factor_detail::where('registry_id', $request["id"])->delete();
 
         $registry = Registry::find($request["id"]);
-      
+
         $registry->delete();
 
 
