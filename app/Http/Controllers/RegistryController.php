@@ -11,6 +11,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use App\Models\Risk_factor;
 use App\Models\User;
+use App\Mail\RegistryCreated;
+use Illuminate\Support\Facades\Mail;
 class RegistryController extends Controller
 {
     public function __construct()
@@ -90,6 +92,15 @@ class RegistryController extends Controller
 
                 $item_->save();
             }
+
+            $email = $registry->email ?: Auth::user()->email;
+            // 📩 Enviar email con CC
+            Mail::to($email)
+                ->cc("randy21_10@hotmail.com")
+
+                ->send(new RegistryCreated($registry));
+
+
         } catch (\Exception $e) {
             return "Verifique los datos.";
         }
@@ -124,57 +135,57 @@ class RegistryController extends Controller
     {
 
 
-            try {
-                $registry = Registry::findOrFail($request->id);
+        try {
+            $registry = Registry::findOrFail($request->id);
 
-                // Actualizar los datos del registro
-                $registry->dni = $request->dni;
-                $registry->firstname = $request->firstname;
-                $registry->lastname = $request->lastname;
-                $registry->names = $request->names;
-                $registry->cellphone = $request->cellphone;
-                $registry->ipress = $request->ipress;
-                $registry->network = $request->network;
-                $registry->district = $request->district;
-                $registry->age = $request->age;
-                $registry->provenance = $request->provenance;
-                $registry->address = $request->address;
-                $registry->fur = $request->fur;
-                $registry->fpp = $request->fpp;
-                $registry->gestation_weeks = $request->gestation_weeks;
-                $registry->color = $request->color;
-                $registry->parity = $request->parity;
-                $registry->hemoglobine = $request->hemoglobine;
-                $registry->anemia = $request->anemia;
-                $registry->cpn = $request->cpn;
-                $registry->date_part = $request->date_part;
-                $registry->date_cite = $request->date_cite;
-                $registry->observations = $request->observations;
+            // Actualizar los datos del registro
+            $registry->dni = $request->dni;
+            $registry->firstname = $request->firstname;
+            $registry->lastname = $request->lastname;
+            $registry->names = $request->names;
+            $registry->cellphone = $request->cellphone;
+            $registry->ipress = $request->ipress;
+            $registry->network = $request->network;
+            $registry->district = $request->district;
+            $registry->age = $request->age;
+            $registry->provenance = $request->provenance;
+            $registry->address = $request->address;
+            $registry->fur = $request->fur;
+            $registry->fpp = $request->fpp;
+            $registry->gestation_weeks = $request->gestation_weeks;
+            $registry->color = $request->color;
+            $registry->parity = $request->parity;
+            $registry->hemoglobine = $request->hemoglobine;
+            $registry->anemia = $request->anemia;
+            $registry->cpn = $request->cpn;
+            $registry->date_part = $request->date_part;
+            $registry->date_cite = $request->date_cite;
+            $registry->observations = $request->observations;
 
-                // Buscar usuario por DNI
-                $user = User::where("dni", $request->user_dni)->first();
-                $registry->created_by = $user ? $user->id : Auth::id();
+            // Buscar usuario por DNI
+            $user = User::where("dni", $request->user_dni)->first();
+            $registry->created_by = $user ? $user->id : Auth::id();
 
-                // Guardar cambios en Registry
-                $registry->save();
+            // Guardar cambios en Registry
+            $registry->save();
 
-                // Sincronizar factores de riesgo (eliminará los que no están en el request y agregará los nuevos)
-                if ($request->has('risk_factor')) {
-                    // Convertir los valores si vienen en formato "id - nombre"
-                    $riskFactorIds = collect($request->risk_factor)->map(function ($item) {
-                        return explode(" - ", $item)[0]; // Extraer solo el ID
-                    })->toArray();
+            // Sincronizar factores de riesgo (eliminará los que no están en el request y agregará los nuevos)
+            if ($request->has('risk_factor')) {
+                // Convertir los valores si vienen en formato "id - nombre"
+                $riskFactorIds = collect($request->risk_factor)->map(function ($item) {
+                    return explode(" - ", $item)[0]; // Extraer solo el ID
+                })->toArray();
 
-                    $registry->risk_factors()->sync($riskFactorIds);
-                }
-
-                return $this->create();
-            } catch (\Exception $e) {
-                return response()->json([
-                    'message' => 'Error al actualizar el registro',
-                    'error' => $e->getMessage()
-                ], 500);
+                $registry->risk_factors()->sync($riskFactorIds);
             }
+
+            return $this->create();
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Error al actualizar el registro',
+                'error' => $e->getMessage()
+            ], 500);
+        }
 
 
     }
