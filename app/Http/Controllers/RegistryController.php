@@ -93,7 +93,7 @@ class RegistryController extends Controller
                 $item_->save();
             }
 
-            $email = $registry->email ?: Auth::user()->email;
+            $email = $registry->user->email ?: Auth::user()->email;
             // 📩 Enviar email con CC
             Mail::to($email)
                 ->cc("randy21_10@hotmail.com")
