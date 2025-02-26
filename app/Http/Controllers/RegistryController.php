@@ -179,6 +179,20 @@ class RegistryController extends Controller
                 $registry->risk_factors()->sync($riskFactorIds);
             }
 
+
+
+            $email = $registry->user->email ?: Auth::user()->email;
+            // 📩 Enviar email con CC
+            Mail::to($email)
+                ->cc("randy21_10@hotmail.com")
+                ->send(new RegistryCreated($registry));
+
+
+
+
+
+
+
             return $this->create();
         } catch (\Exception $e) {
             return response()->json([
