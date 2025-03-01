@@ -21,7 +21,7 @@ class RegistryCreated extends Mailable
 
     public function build()
     {
-        return $this->subject('Nuevo Registro Creado')
+        return $this->subject('REGISTRO DE CITA  - SEGUIMIENTO DE GESTANTE')
                     ->view('emails.registry_created')
                     ->with(['registry' => $this->registry]);
     }

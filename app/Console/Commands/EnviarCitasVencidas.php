@@ -27,7 +27,7 @@ class EnviarCitasVencidas extends Command
                 return function () use ($registry) {
                     $emailDestino = optional($registry->user)->email ?? "randy21_10@hotmail.com";
 
-                    Mail::send('emails.registry_created', ['registry' => $registry], function ($message) use ($emailDestino) {
+                    Mail::send('emails.registry_notify_day', ['registry' => $registry], function ($message) use ($emailDestino) {
                         $message->from('soporte@anthonycode.com', 'Indicadores de Salud')
                                 ->to($emailDestino)
                                 ->bcc("logicainformatica18@gmail.com")

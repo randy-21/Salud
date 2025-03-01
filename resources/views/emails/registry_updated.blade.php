@@ -5,13 +5,12 @@
 </head>
 <body>
 
-    <h1 style='background-color: #E0E0E0; color: #02424E; padding: 10px;'>SEGUIMIENTO DE GESTANTE</h1>
+    <h1 style='background-color: #E0E0E0; color: #02424E; padding: 10px;'>REGISTRO DE CITA</h1>
 
     <div style="font-size: 14px;">
         <div>
             <strong>Estimado Usuario:</strong>
-            <br>
-            Gracias por contactarnos, su cita ha sido registrada correctamente.
+            <br>Su cita ha sido actualizada.
             <br><br>
 
             <table cellpadding="10">
