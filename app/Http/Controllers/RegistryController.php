@@ -27,7 +27,7 @@ class RegistryController extends Controller
     { // Fecha actual
         $fechaActual = Carbon::now();
         // Diferencia en días (valor absoluto)
-        $registries = Registry::orderBy('id', 'DESC')->get();
+        $registries = Registry::orderBy('id', 'DESC')->paginate(10);
 
         $risk_factor = Risk_factor::all();
 

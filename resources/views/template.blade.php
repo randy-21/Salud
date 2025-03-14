@@ -225,7 +225,7 @@
                                     </a>
 
                                     </li>
-                                     
+
                                     @endcanany
                                     @canany(['administrar', 'personal'])
                                         <li class="sidebar-item">
@@ -2144,9 +2144,9 @@
 
 
 
-            // 
+            //
             //    File export                              //
-            // 
+            //
             $("#file_export").DataTable({
                 dom: "Bfrtip",
                 buttons: ["copy", "csv",
@@ -2163,9 +2163,9 @@
                 ".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel"
             ).addClass("btn btn-primary");
 
-            // 
+            //
             //  Show / hide columns dynamically                 //
-            // 
+            //
 
             var table = $("#show_hide_col").DataTable({
                 scrollY: "200px",
@@ -2184,9 +2184,9 @@
                 column.visible(!column.visible());
             });
 
-            // 
+            //
             //    Column rendering                         //
-            // 
+            //
             $("#col_render").DataTable({
                 columnDefs: [{
                         // The `data` parameter refers to the data for the cell (defined by the
@@ -2204,9 +2204,9 @@
                 ],
             });
 
-            // 
+            //
             //     Row grouping                            //
-            // 
+            //
             var table = $("#row_group").DataTable({
                 pageLength: 10,
                 columnDefs: [{
@@ -2243,9 +2243,9 @@
                 },
             });
 
-            // 
+            //
             // Order by the grouping
-            // 
+            //
             $("#row_group tbody").on("click", "tr.group", function() {
                 var currentOrder = table.order()[0];
                 if (currentOrder[0] === 2 && currentOrder[1] === "asc") {
@@ -2255,16 +2255,16 @@
                 }
             });
 
-            // 
+            //
             //    Multiple table control element           //
-            // 
+            //
             $("#multi_control").DataTable({
                 dom: '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
             });
 
-            // 
+            //
             //    DOM/jquery events                        //
-            // 
+            //
             var table = $("#dom_jq_event").DataTable();
 
             $("#dom_jq_event tbody").on("click", "tr", function() {
@@ -2272,18 +2272,18 @@
                 alert("You clicked on " + data[0] + "'s row");
             });
 
-            // 
+            //
             //    Language File                            //
-            // 
+            //
             $("#lang_file").DataTable({
                 language: {
                     url: "../../assets/js/datatable/German.json",
                 },
             });
 
-            // 
+            //
             //    Complex headers with column visibility   //
-            // 
+            //
 
             $("#complex_head_col").DataTable({
                 columnDefs: [{
@@ -2292,9 +2292,9 @@
                 }, ],
             });
 
-            // 
+            //
             //    Setting defaults                         //
-            // 
+            //
             var defaults = {
                 searching: false,
                 ordering: false,
@@ -2302,9 +2302,9 @@
 
             $("#setting_defaults").dataTable($.extend(true, {}, defaults, {}));
 
-            // 
+            //
             //    Footer callback                          //
-            // 
+            //
             $("#footer_callback").DataTable({
                 footerCallback: function(row, data, start, end, display) {
                     var api = this.api(),
@@ -2344,9 +2344,9 @@
                 },
             });
 
-            // 
+            //
             //    Custom toolbar elements                  //
-            // 
+            //
 
             $("#custom_tool_ele").DataTable({
                 dom: '<"toolbar">frtip',
@@ -2354,9 +2354,9 @@
 
             $("div.toolbar").html("<b>Custom tool bar! Text/images etc.</b>");
 
-            // 
+            //
             //    Row created callback                     //
-            // 
+            //
             $("#row_create_call").DataTable({
                 createdRow: function(row, data, index) {
                     if (data[5].replace(/[\$,]/g, "") * 1 > 150000) {
