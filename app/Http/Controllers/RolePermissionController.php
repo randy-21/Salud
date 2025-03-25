@@ -63,6 +63,7 @@ class RolePermissionController extends Controller
      */
     public function edit(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $Role = Role::findOrFail($request->id);
         // Obtén todos los permisos
         $permissions = Permission::all();
@@ -80,6 +81,7 @@ class RolePermissionController extends Controller
      */
     public function update(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         // Encuentra el rol
         $Role = Role::findOrFail($request->id);
         // Obtén la lista de permisos seleccionados (puede ser null si no se seleccionó nada)

@@ -20,8 +20,9 @@ class RoleController extends Controller
     }
     public function index()
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $Role= Role::orderBy('id','DESC')->get();
-       
+
         return view("Role.Role", compact("Role"));
     }
 
@@ -32,6 +33,7 @@ class RoleController extends Controller
      */
     public function create()
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $Role = Role::orderBy('id','DESC')->get();
         return view("Role.Roletable", compact("Role"));
     }
@@ -44,6 +46,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         // create role
         $role = new Role;
         $role->name = $request->name;
@@ -57,7 +60,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
 
     /**
      * Show the form for editing the specified resource.
@@ -67,10 +70,11 @@ class RoleController extends Controller
      */
     public function edit(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $role = Role::find($request->id);
         return $role;
     }
-  
+
 
     /**
      * Update the specified resource in storage.
@@ -81,6 +85,7 @@ class RoleController extends Controller
      */
     public function update(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $role = Role::find($request->id);
         $role->name = $request->name;
         $role->save();
@@ -95,10 +100,10 @@ class RoleController extends Controller
      */
     public function destroy(Request $request)
     {
-
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         Role::find($request->id)->delete();
         return $this->create();
     }
-    
+
 
 }

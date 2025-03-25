@@ -26,7 +26,9 @@ class RegistryController extends Controller
      * Listar registros
      */
     public function index()
-    { // Fecha actual
+    {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
+        // Fecha actual
         $fechaActual = Carbon::now();
         // Diferencia en días (valor absoluto)
         $registries = Registry::orderBy('id', 'DESC')->paginate(10);
@@ -53,6 +55,7 @@ class RegistryController extends Controller
      */
     public function store(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $vlaidate=Registry::where('dni', $request->dni)->first();
 
         if ($vlaidate) {
@@ -121,6 +124,7 @@ class RegistryController extends Controller
      */
     public function search(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $fechaActual = Carbon::now();
 
         $registries = Registry::when(trim($request->criterio), function ($query, $criterio) {
@@ -147,6 +151,7 @@ class RegistryController extends Controller
      */
     public function edit(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $registry = Registry::with('user')->find($request["id"]);
         $registry->risk_factors_ = $registry->risk_factors;
         return $registry;
@@ -158,7 +163,7 @@ class RegistryController extends Controller
     public function update(Request $request)
     {
 
-
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         try {
             $registry = Registry::findOrFail($request->id);
 
@@ -233,6 +238,7 @@ class RegistryController extends Controller
      */
     public function destroy(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
 
         Risk_factor_detail::where('registry_id', $request["id"])->delete();
 
@@ -255,6 +261,7 @@ class RegistryController extends Controller
 
      public function export()
      {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
          return Excel::download(new RegistryExport, 'Reporte de vigilancia epidemiologica activa - vea.xlsx');
      }
 

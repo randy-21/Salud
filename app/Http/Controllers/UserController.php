@@ -35,14 +35,14 @@ class UserController extends Controller
 
     }
     public function index()
-    {
+    {   ini_set('memory_limit', '512M'); // O el valor que necesites
         $user = User::orderBy('id','DESC')->get();
         $roles = Role::all();
         return view('user.user', compact('user', 'roles'));
     }
     public function profile()
     {
-        
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         return view('user.profile');
     }
     /**
@@ -51,7 +51,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   ini_set('memory_limit', '512M'); // O el valor que necesites
         $user = User::orderBy('id','DESC')->get();
         return view('user.usertable', compact('user'));
     }
@@ -63,7 +63,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   ini_set('memory_limit', '512M'); // O el valor que necesites
         $request->datebirth = datebirth($request->day, $request->month, $request->year);
 
         try {
@@ -102,6 +102,7 @@ class UserController extends Controller
      */
     public function show(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $show = "%" . $request["show"] . "%";
         $user = User::where('firstname', "like", $show)->all();
         return view('usertable', compact('user'));
@@ -115,6 +116,7 @@ class UserController extends Controller
      */
     public function edit(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $user =  User::find($request["id"]);
         // foreach ($user->roles_ as $key => $valor) {
         //     $user->role_name=  $valor->name;
@@ -131,7 +133,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {
+    {   ini_set('memory_limit', '512M'); // O el valor que necesites
         $request->datebirth = datebirth($request->day, $request->month, $request->year);
 
         if ($request->photo == "") {
@@ -150,8 +152,8 @@ class UserController extends Controller
                 $users->password =  Hash::make($request->password);
                // Enviar notificación
                      $users->notify(new ChangePassword());
-            } 
-         
+            }
+
 
             $users->save();
         } else {
@@ -174,10 +176,10 @@ class UserController extends Controller
                 $users->password =  Hash::make($request->password);
                // Enviar notificación
                      $users->notify(new ChangePassword());
-            } 
+            }
             $users->save();
         }
-        
+
         return   $this->create();
     }
 
@@ -189,6 +191,7 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $table = User::find($request["id"]);
         fileDestroy($table->photo, "imageusers");
         User::find($request["id"])->delete();
@@ -200,9 +203,9 @@ class UserController extends Controller
         $request->datebirth = datebirth($request->day, $request->month, $request->year);
         //  if ($request->photo == "") {
         $users = User::find($request->id);
-    
-      
-     
+
+
+
         $users->sex =   $request->sex;
 
         $users->datebirth = $request->datebirth;
@@ -220,24 +223,25 @@ class UserController extends Controller
 
 
         $users->save();
-    
+
     }
 
-  
-   public function import() 
+
+   public function import()
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         Excel::import(new ImportUsers, request()->file('file'));
-            
+
         return back();
     }
     public function importGoogle(Request $request){
-     //   $request->id_sheet = '1ShgVLdsBMDAW2v0Xzk3JL8xls0KlKUEUMzY5mlTvwds'; 
+     //   $request->id_sheet = '1ShgVLdsBMDAW2v0Xzk3JL8xls0KlKUEUMzY5mlTvwds';
      //   $request->range = 'hoja!A1:H10'; // Ajusta el rango según tu hoja de cálculo
 
-   
+
             $google = New GoogleSheetService();
             $data =   $google->getSheetDataWithHeaders($request->id_sheet, $request->range);
-     
+
             $object = json_decode(json_encode($data));
            // return $object;
             // return var_dump($data);
@@ -262,13 +266,13 @@ class UserController extends Controller
                     $user1->save();
                     $user1->assignRole('Socio Comercial');
                 }
-                
-              
+
+
             }
-          
-          
 
 
-     
+
+
+
     }
 }

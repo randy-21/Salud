@@ -13,6 +13,7 @@ class RiskFactorController extends Controller
      */
     public function index()
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         //
         $risk_factor = Risk_factor::orderBy('id','DESC')->get();
         return view("Risk_factor.risk_factor", compact("risk_factor"));
@@ -25,6 +26,7 @@ class RiskFactorController extends Controller
      */
     public function create()
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         //
         $risk_factor = Risk_factor::orderBy('id','DESC')->get();
         return view("Risk_factor.risk_factortable", compact("risk_factor"));
@@ -38,6 +40,7 @@ class RiskFactorController extends Controller
      */
     public function store(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $Risk_factor = new Risk_factor;
         $Risk_factor->description = $request->description;
         $Risk_factor->detail = $request->detail;
@@ -53,6 +56,7 @@ class RiskFactorController extends Controller
      */
     public function show(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $show="%".$request["show"]."%";
         $risk_factor=Risk_factor::where('description',"like",$show)->all();
         return view('risk_factor.risk_factortable',compact('risk_factor'));
@@ -64,10 +68,11 @@ class RiskFactorController extends Controller
      * @param  \App\Models\Risk_factor  $Risk_factor
      * @return \Illuminate\Http\Response
      */
-  
+
     public function edit(Request $request)
     {
         //
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $Risk_factor = Risk_factor::find($request->id);
         return $Risk_factor;
     }
@@ -81,6 +86,7 @@ class RiskFactorController extends Controller
 
     public function update(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         $Risk_factor = Risk_factor::find($request->id);
         $Risk_factor->description = $request->description;
         $Risk_factor->detail = $request->detail;
@@ -95,6 +101,7 @@ class RiskFactorController extends Controller
      */
     public function destroy(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         Risk_factor::find($request->id)->delete();
         return $this->create();
     }

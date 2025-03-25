@@ -45,6 +45,7 @@ class UserRoleController extends Controller
      */
     public function edit(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         // Encuentra el usuario específico
         $user = User::findOrFail($request->id);
 
@@ -62,6 +63,7 @@ class UserRoleController extends Controller
      */
     public function update(Request $request)
     {
+        ini_set('memory_limit', '512M'); // O el valor que necesites
         // Encuentra el usuario
         $user = User::findOrFail($request->id);
 
