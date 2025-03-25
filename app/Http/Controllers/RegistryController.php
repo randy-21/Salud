@@ -8,6 +8,8 @@ use App\Models\Registry; // Cambiado a Registry
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\RegistryExport;
+
 use Carbon\Carbon;
 use App\Models\Risk_factor;
 use App\Models\User;
@@ -51,6 +53,12 @@ class RegistryController extends Controller
      */
     public function store(Request $request)
     {
+        $vlaidate=Registry::where('dni', $request->dni)->first();
+
+        if ($vlaidate) {
+            return "Dni ya registrado";
+        }
+
         try {
             $registry = new Registry();
             $registry->dni = $request->dni;
@@ -111,11 +119,27 @@ class RegistryController extends Controller
     /**
      * Mostrar un registro
      */
-    public function show(Request $request)
+    public function search(Request $request)
     {
-        $show = "%" . $request["show"] . "%";
-        $registries = Registry::where('names', 'like', $show)->get();
-        return view('Registry.registrytable', compact('registries'));
+        $fechaActual = Carbon::now();
+
+        $registries = Registry::when(trim($request->criterio), function ($query, $criterio) {
+            $query->where(function ($query) use ($criterio) {
+                $query->orWhere('registries.dni', 'like', "%$criterio%")
+                    ->orWhere('registries.firstname', 'like', "%$criterio%")
+                    ->orWhere('registries.lastname', 'like', "%$criterio%")
+                    ->orWhere('registries.names', 'like', "%$criterio%")
+                    ->orWhere('registries.district', 'like', "%$criterio%")
+                    ->orWhere('registries.ipress', 'like', "%$criterio%");
+            });
+        })
+        ->orderBy('registries.id', 'desc')
+        ->paginate(7);
+
+    $crit = $request->criterio;
+
+    return view('Registry.registrytable', compact('registries', 'crit','fechaActual'));
+
     }
 
     /**
@@ -223,4 +247,19 @@ class RegistryController extends Controller
     /**
      * Importar datos desde Excel
      */
+
+
+
+
+
+
+     public function export()
+     {
+         return Excel::download(new RegistryExport, 'Reporte de vigilancia epidemiologica activa - vea.xlsx');
+     }
+
+
+
+
+
 }

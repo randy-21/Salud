@@ -48,17 +48,17 @@
                                         onchange="actualizarnetwork()"
                                         >
                                             <option value="" disabled selected>Seleccione un distrito</option>
-                                      
+
                                             <!-- Opciones reducidas para ejemplo -->
                                         </select>
                                     </div>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Eje de Red y Microred</label>
                                         <select name="network"id="network" class="form-control"onchange="actualizarNombreEstablecimiento();">
-                                          
+
                                             <!-- Opciones reducidas para ejemplo -->
                                             <option value="" disabled selected>Seleccione un eje de Red</option>
-                                         
+
                                             <option value="EJE SAN GABRIEL DE VARADERO">EJE SAN GABRIEL DE VARADERO</option>
 <option value="EJE BALSAPUERTO">EJE BALSAPUERTO</option>
 <option value="EJE JEBEROS">EJE JEBEROS</option>
@@ -83,7 +83,7 @@
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>IPRESS</label>
                                         <select name="ipress"id="ipress" class="form-control">
-                                           
+
                                             <!-- Opciones reducidas para ejemplo -->
                                             <option value="" disabled selected>Seleccione un IPRESS</option>
                                             <option value="C.S. I-3 SAN GABRIEL DE VARADERO">C.S. I-3 SAN GABRIEL DE VARADERO</option>
@@ -215,7 +215,7 @@
                                         <label>Celular</label>
                                         <input type="number" name="cellphone" class="form-control" placeholder="Celular">
                                     </div>
-                                   
+
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Edad</label>
                                         <input type="number" name="age" class="form-control" placeholder="Edad">
@@ -246,26 +246,26 @@
                                        <div class="form-group" data-select2-id="22">
                                         <br>
                                         <h6>Factor de Riesgo :</h6>
-    
-    
-    
-    
+
+
+
+
                                         <select name="risk_factor[]"id="risk_factor" class="select2 select2-hidden-accessible"
                                             multiple="" data-placeholder="Any" style="width: 100%;" data-select2-id="1"
                                             tabindex="-1" aria-hidden="true"onchange="getColor('risk_factor','color')">
                                             {{-- <option data-select2-id="16" value="1" selected >número 0</option>
                                             <option data-select2-id="17" value="1" >número 1</option>
                                             </option> --}}
-    
+
                                             @foreach ($risk_factor as $item)
                                                 @php
                                                  $risk=explode(' - ',$item->description)
                                                 @endphp
                                                     <option style="color:black" value="{{ $item->id }} - {{$item->description}}">{{$risk[1] }}</span></option>
-                                                
+
                                             @endforeach
-    
-    
+
+
                                         </select>
                                     </div>
 
@@ -286,7 +286,7 @@
                                         <label>Anemia</label>
                                         <input type="text" name="anemia" class="form-control"id="anemia" placeholder="Anemia" readonly>
                                     </div>
-                                  
+
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                                         <label>Fecha 1 CNP</label>
                                         <input type="date" name="cpn" class="form-control" placeholder="CNP">
@@ -312,24 +312,49 @@
                                 <input type="button" value="Nuevo" class="btn btn-primary"
                                 onclick="New();$('#registry')[0].reset();" name="new">
                         @canany(['administrar', 'agregar'])
-                            <button type="button" class="btn bg-success-subtle text-success" onclick="registryStore()"id="create">
-                                Guardar
-                            </button>
+                        <button type="button" class="btn bg-success-subtle text-success" onclick="registryStore()" id="create">
+                            <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <span id="buttonText">Guardar</span>
+                        </button>
                         @endcanany
                         @canany(['administrar', 'actualizar'])
                             <button type="button" class="btn bg-danger-subtle text-danger" onclick="registryUpdate()" id="update">
-                                Modificar
+                                <span id="spinner_edit" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <span id="buttonText_edit">Modificar</span>
                             </button>
                         @endcanany
+                        <a  href="registry_export" class="btn bg-danger-subtle text-danger">
+                            <span id="spinner_edit" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        <span>Exportar Excel</span>
+                        </a>
                                 {{ csrf_field() }}
                             </form>
                         </div>
-                        
+
                         <div class="mb-2">
                             <h4 class="card-title mb-0">Exportar</h4>
                         </div>
                         <div class="table-responsive" id="mycontent">
                             @include('Registry.registrytable') <!-- Actualiza con tu archivo de tabla -->
+                        </div>
+                        <style>
+                            .relative svg {
+                                width: 44px;
+                                /* Ajusta el tamaño del icono */
+                                height: 44px;
+                            }
+
+                            .hidden div p {
+                                display: none;
+
+                            }
+
+                            .hidden div {
+                                margin: 20px
+                            }
+                        </style>
+                        <div class="my-5 d-flex justify-content-start" style="height:20px;width:100%">
+                            {{ $registries->links() }}
                         </div>
                     </div>
                 </div>
@@ -353,7 +378,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        
+
                     </div>
                 </div>
             </div>

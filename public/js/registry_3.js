@@ -1,25 +1,44 @@
 function registryStore() {
-  var formData = new FormData(document.getElementById("registry"));
-  axios({
-    method: "post",
-    url: "../registryStore",
-    data: formData,
-    headers: {
-      "Content-Type": "multipart/form-data"
-    }
-  })
-    .then(function(response) {
-      //handle success
-      var contentdiv = document.getElementById("mycontent");
-      contentdiv.innerHTML = response.data;
-      //carga pdf- csv - excel
+    let button = document.getElementById("create");
+    let spinner = document.getElementById("spinner");
+    let buttonText = document.getElementById("buttonText");
 
-      datatable_load();
-      alert("Registrado Correctamente");
+    // Deshabilitar el botón y mostrar el spinner
+    button.disabled = true;
+    spinner.classList.remove("d-none");
+    buttonText.textContent = "Guardando...";
+
+    var formData = new FormData(document.getElementById("registry"));
+
+    axios({
+        method: "post",
+        url: "../registryStore",
+        data: formData,
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
     })
-    .catch(function(response) {
-      //handle error
-      console.log(response);
+    .then(function(response) {
+        //handle success
+        var contentdiv = document.getElementById("mycontent");
+        contentdiv.innerHTML = response.data;
+
+        // Cargar datos adicionales
+        datatable_load();
+        alert("Registrado Correctamente");
+
+        // Restaurar el botón después de éxito
+        button.disabled = false;
+        spinner.classList.add("d-none");
+        buttonText.textContent = "Guardar";
+    })
+    .catch(function(error) {
+        console.log(error);
+
+        // Restaurar el botón en caso de error
+        button.disabled = false;
+        spinner.classList.add("d-none");
+        buttonText.textContent = "Guardar";
     });
 }
 
@@ -107,22 +126,22 @@ function registryEdit(id) {
       registry.fpp.value = response.data["fpp"];
       registry.gestation_weeks.value = response.data["gestation_weeks"];
 
-  
-   
+
+
        let risk =response.data["risk_factors"];
-  
-     
-       
+
+
+
         let risk__ =[];
       risk.forEach(function(factor) {
          risk__.push(factor.id+" - "+factor.description);
-      
+
       });
 
       let riskFactorSelect = $("#risk_factor");
 
       // `risk__` ya contiene los IDs de las opciones que quieres seleccionar
-      riskFactorSelect.val(risk__).trigger('change'); 
+      riskFactorSelect.val(risk__).trigger('change');
 
 
       registry.color.value = response.data["color"];
@@ -141,6 +160,15 @@ function registryEdit(id) {
 }
 
 function registryUpdate() {
+    let button = document.getElementById("create");
+    let spinner = document.getElementById("spinner_edit");
+    let buttonText = document.getElementById("buttonText_edit");
+
+    // Deshabilitar el botón y mostrar el spinner
+    button.disabled = true;
+    spinner.classList.remove("d-none");
+    buttonText.textContent = "Editando...";
+
   var formData = new FormData(document.getElementById("registry"));
   axios({
     method: "post",
@@ -156,11 +184,18 @@ function registryUpdate() {
       contentdiv.innerHTML = response.data;
       //carga pdf- csv - excel
       datatable_load();
+      button.disabled = false;
+      spinner.classList.add("d-none");
+      buttonText.textContent = "Modificar";
+
       alert("Modificado Correctamente");
     })
     .catch(function(response) {
       //handle error
       console.log(response);
+      button.disabled = false;
+      spinner.classList.add("d-none");
+      buttonText.textContent = "Modificar";
     });
 }
 

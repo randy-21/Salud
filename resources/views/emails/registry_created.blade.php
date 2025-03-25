@@ -25,7 +25,25 @@
                     </tr>
                 </tbody>
             </table>
+<br>
+<table cellpadding="10">
+    <tbody>
+        <tr>
+            <td>
+                <strong style="font-size:17px">IPRESS:</strong>
+                <strong>{{ $registry->ipress }}</strong>
+            </td>
 
+        </tr>
+        <tr>
+            <td>
+                <strong style="font-size:17px">Responsable:</strong>
+                <strong>{{ $registry->user->firstname }} {{ $registry->user->lastname }} {{ $registry->user->names }}</strong>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
             <br>
 
             <table cellpadding="5">

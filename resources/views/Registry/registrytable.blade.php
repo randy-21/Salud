@@ -45,7 +45,7 @@
                                 <li>
                                     <a onclick="registryEdit('{{ $registry->id }}'); return false"
                                          
-                                        class="dropdown-item d-flex align-items-center gap-3">
+                                        class="dropdown-item d-flex align-items-center gap-3">  
                                         <i class="fs-4 ti ti-edit"></i>
                                     </a>
                                 </li>

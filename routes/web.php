@@ -27,8 +27,8 @@ use App\Http\Controllers\SaludosController ;
 Route::get('/saludo_controlador', [SaludosController::class, 'index']);
 
 
-Route::group(['middleware' => ['auth']], function () { 
-  
+Route::group(['middleware' => ['auth']], function () {
+
   Route::get('perfil', [App\Http\Controllers\UserController::class, 'profile']);
 
   Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index'])->middleware('permission:administrar|usuarios');
@@ -37,15 +37,18 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('userEdit', [App\Http\Controllers\UserController::class, 'edit'])->middleware('permission:administrar|editar');
   Route::get('userDestroy/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->middleware('permission:administrar|eliminar');
   Route::post('userUpdateProfile', [App\Http\Controllers\UserController::class, 'updateProfile']);
-  
+
   Route::post('UserRoleEdit', [App\Http\Controllers\UserRoleController::class, 'edit'])->middleware('permission:administrar|editar');
   Route::post('UserRoleUpdate', [App\Http\Controllers\UserRoleController::class, 'update'])->middleware('permission:administrar|actualizar');
 
   Route::get('registros', [App\Http\Controllers\RegistryController::class, 'index'])->middleware('permission:administrar|obstetra');
+  Route::post('search', [App\Http\Controllers\RegistryController::class, 'search']);
+
   Route::post('registryStore', [App\Http\Controllers\RegistryController::class, 'store'])->middleware('permission:administrar|agregar');
   Route::post('registryUpdate', [App\Http\Controllers\RegistryController::class, 'update'])->middleware('permission:administrar|actualizar');
   Route::post('registryEdit', [App\Http\Controllers\RegistryController::class, 'edit'])->middleware('permission:administrar|editar');
   Route::get('registryDestroy/{id}', [App\Http\Controllers\RegistryController::class, 'destroy'])->middleware('permission:administrar|eliminar');
+  Route::get('registry_export', [App\Http\Controllers\RegistryController::class, 'export'])->middleware('permission:administrar|obstetra');
 
 
 
@@ -54,7 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('RoleEdit', [App\Http\Controllers\RoleController::class, 'edit'])->middleware('permission:administrar|editar');
   Route::post('RoleUpdate', [App\Http\Controllers\RoleController::class, 'update'])->middleware('permission:administrar|actualizar');
   Route::post('RoleDestroy', [App\Http\Controllers\RoleController::class, 'destroy'])->middleware('permission:administrar|eliminar');
-  
+
 
   Route::post('RolePermissionUpdate', [App\Http\Controllers\RolePermissionController::class, 'update'])->middleware('permission:administrar|actualizar');
   Route::post('RolePermissionEdit', [App\Http\Controllers\RolePermissionController::class, 'edit'])->middleware('permission:administrar|editar');
