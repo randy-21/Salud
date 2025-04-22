@@ -238,7 +238,7 @@
 
                                                 <li class="sidebar-item">
                                                     <a class="sidebar-link" target="_blank"
-                                                        href="https://app.powerbi.com/view?r=eyJrIjoiYzI4ZWNkNzgtZjdiZS00YzZmLWE3MGYtZmYyN2UyYmYxZmUyIiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
+                                                        href="https://app.powerbi.com/view?r=eyJrIjoiYzQyNjVkNWUtNDQwZS00ZTJlLWEwM2EtZmM1ZDljN2E4NTc3IiwidCI6Ijc5ZThmNmE5LTAyMzEtNGIxZS1hZWM3LTBiYjkyMzBkNmRlMSIsImMiOjR9">
                                                         <span class="icon-small"></span>Digitación
                                                     </a>
                                                 </li>
